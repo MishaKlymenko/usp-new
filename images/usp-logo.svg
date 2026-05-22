@@ -1,0 +1,27 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6fd0df;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#30add4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="yellowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f1dc64;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDEFCB;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Blue shape -->
+    <path d="M15,20 Q25,10 35,20 Q25,15 15,20" fill="url(#blueGradient)" opacity="0.9"/>
+    <!-- Yellow shape -->
+    <path d="M15,20 Q25,30 35,20 Q25,25 15,20" fill="url(#yellowGradient)" opacity="0.9"/>
+    <!-- Overlap area (greenish) -->
+    <path d="M20,18 Q25,20 30,18 Q25,22 20,18" fill="#7f7f7f" opacity="0.3"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f3d7a">Ukraine</text>
+  <text x="50" y="40" font-family="Arial, sans-serif" font-size="10" fill="#1f3d7a">Strategic Partners</text>
+  <text x="50" y="52" font-family="Arial, sans-serif" font-size="8" fill="#7f7f7f">USP</text>
+</svg>
