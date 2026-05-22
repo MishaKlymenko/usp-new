@@ -262,6 +262,8 @@ body::before {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  position: relative;
+  z-index: 115;
 }
 
 /* Logo: white version on transparent, original on scrolled */
@@ -331,12 +333,13 @@ body::before {
 .nav__menu {
   position: fixed;
   inset: 0;
-  background: var(--white);
+  background: var(--navy);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--sp-md);
+  padding-top: 30vh;
   transform: translateX(100%);
   transition: transform 0.4s var(--ease);
   z-index: 105;
@@ -349,7 +352,7 @@ body::before {
 .nav__menu a {
   font-size: var(--text-xl);
   font-weight: 500;
-  color: var(--navy);
+  color: rgba(255,255,255,0.9);
   padding: var(--sp-xs) var(--sp-lg);
   border-radius: var(--radius-full);
   transition: all var(--duration) var(--ease);
@@ -359,7 +362,34 @@ body::before {
 .nav__menu a:hover,
 .nav__menu a[aria-current="page"] {
   color: var(--gold);
-  background: var(--gold-muted);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Mobile menu — contact strip */
+.nav__menu-contacts {
+  list-style: none;
+  margin-top: auto;
+  padding: var(--sp-md) var(--sp-md) var(--sp-lg);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.nav__menu .nav__menu-contacts a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  padding: 0.2em 1em;
+  letter-spacing: 0.02em;
+  background: none;
+}
+
+.nav__menu .nav__menu-contacts a:hover {
+  color: var(--gold);
+  background: none;
 }
 
 @media (min-width: 1024px) {
@@ -384,12 +414,18 @@ body::before {
     display: none;
   }
 
+  .nav__menu-contacts {
+    display: none;
+  }
+
   .nav__menu {
     position: static;
     flex-direction: row;
+    justify-content: flex-end;
     transform: none;
     background: none;
     gap: var(--sp-2xs);
+    padding-top: 0;
   }
 
   /* Desktop nav links — white on transparent, dark on scrolled */
