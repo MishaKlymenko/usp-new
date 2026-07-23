@@ -1,2 +1,13 @@
+# Editor
 .vscode/
+
+# OS / Windows
+Thumbs.db
+Desktop.ini
+nul
+
+# Backups
 *.bak
+
+# Logs
+*.log

@@ -472,25 +472,37 @@ body::before {
   align-items: center;
   justify-content: center;
   gap: 0.5em;
+  box-sizing: border-box;
   padding: 0.8em 2em;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.01em;
-  border-radius: var(--radius-full);
-  border: 2px solid transparent;
+  border-radius: 9999px;
+  border: none;
   transition: all var(--duration) var(--ease);
   cursor: pointer;
   white-space: nowrap;
   position: relative;
+  flex-shrink: 0;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .btn--primary {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-400) 100%);
+  background: transparent;
   color: var(--white);
-  border-color: transparent;
   box-shadow: 0 4px 14px -3px rgba(15,27,45,0.3);
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-400) 100%);
+  z-index: -1;
 }
 
 .btn--primary:hover {
@@ -503,10 +515,18 @@ body::before {
 }
 
 .btn--gold {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  background: transparent;
   color: var(--navy);
-  border-color: transparent;
   box-shadow: 0 4px 14px -3px rgba(201,162,78,0.35);
+}
+
+.btn--gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  z-index: -1;
 }
 
 .btn--gold:hover {
@@ -517,7 +537,8 @@ body::before {
 .btn--outline {
   background: rgba(255,255,255,0.1);
   color: var(--white);
-  border-color: rgba(255,255,255,0.35);
+  border: 2px solid rgba(255,255,255,0.35);
+  padding: calc(0.8em - 2px) calc(2em - 2px);
   backdrop-filter: blur(8px);
 }
 
@@ -531,7 +552,8 @@ body::before {
 .btn--outline-dark {
   background: transparent;
   color: var(--navy);
-  border-color: var(--border);
+  border: 2px solid var(--border);
+  padding: calc(0.8em - 2px) calc(2em - 2px);
 }
 
 .btn--outline-dark:hover {
@@ -546,9 +568,19 @@ body::before {
   font-size: var(--text-base);
 }
 
+.btn--outline.btn--lg,
+.btn--outline-dark.btn--lg {
+  padding: calc(1em - 2px) calc(2.5em - 2px);
+}
+
 .btn--sm {
   padding: 0.55em 1.5em;
   font-size: var(--text-xs);
+}
+
+.btn--outline.btn--sm,
+.btn--outline-dark.btn--sm {
+  padding: calc(0.55em - 2px) calc(1.5em - 2px);
 }
 
 .btn-group {
@@ -556,6 +588,8 @@ body::before {
   flex-wrap: wrap;
   gap: var(--sp-sm);
   justify-content: center;
+  padding: 4px;
+  margin: -4px;
 }
 
 /* ── 8. Sections ───────────────────────────── */
@@ -736,6 +770,8 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--sp-sm);
+  padding: 4px;
+  margin: -4px;
 }
 
 /* ── 10. Page Header (Subpages) ────────────── */
@@ -1449,6 +1485,18 @@ a.contact-card {
   letter-spacing: -0.01em;
 }
 
+.contact-card__body a.contact-card__value,
+.contact-card__body a.contact-card__sub {
+  display: block;
+  text-decoration: none;
+  transition: color var(--duration);
+}
+
+.contact-card__body a.contact-card__value:hover,
+.contact-card__body a.contact-card__sub:hover {
+  color: var(--gold);
+}
+
 .contact-card__sub {
   font-size: var(--text-sm);
   color: var(--text-muted);
@@ -1973,8 +2021,20 @@ a.contact-card {
     --shadow-xl: none;
   }
 
-  .btn {
+  .btn--outline,
+  .btn--outline-dark {
     border-width: 3px;
+    padding: calc(0.8em - 3px) calc(2em - 3px);
+  }
+
+  .btn--outline.btn--lg,
+  .btn--outline-dark.btn--lg {
+    padding: calc(1em - 3px) calc(2.5em - 3px);
+  }
+
+  .btn--outline.btn--sm,
+  .btn--outline-dark.btn--sm {
+    padding: calc(0.55em - 3px) calc(1.5em - 3px);
   }
 
   body::before {
