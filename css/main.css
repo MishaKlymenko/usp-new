@@ -1816,6 +1816,11 @@ a.contact-card {
   transition: color var(--duration);
 }
 
+.contact-card__actions {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact-card__body a.contact-card__value:hover,
 .contact-card__body a.contact-card__sub:hover {
   color: var(--gold);
@@ -1848,6 +1853,122 @@ a.contact-card {
 .contact-card:hover .contact-card__arrow {
   opacity: 1;
   transform: translateX(0);
+}
+
+@media (max-width: 767px) {
+  .section:has(#contact-heading) .section__header {
+    margin-bottom: var(--sp-md);
+  }
+
+  .section:has(#contact-heading) .section__header p {
+    font-size: var(--text-base);
+  }
+
+  .contact-cards {
+    gap: var(--sp-sm);
+  }
+
+  .contact-card {
+    padding: var(--sp-md);
+    gap: var(--sp-sm);
+    align-items: center;
+  }
+
+  .contact-card:hover,
+  .contact-card--wide:hover {
+    transform: none;
+    box-shadow: var(--shadow-xs);
+    border-color: var(--border-light);
+  }
+
+  .contact-card--wide:hover {
+    border-color: transparent;
+  }
+
+  .contact-card:hover .contact-card__icon {
+    background: var(--surface-alt);
+    color: var(--navy);
+  }
+
+  .contact-card--wide:hover .contact-card__icon {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--gold-light);
+  }
+
+  .contact-card__icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: var(--radius-sm);
+  }
+
+  .contact-card__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact-card__body h3 {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: var(--sp-xs);
+  }
+
+  .contact-card__value {
+    font-size: var(--text-base);
+  }
+
+  .contact-card__actions {
+    width: 100%;
+  }
+
+  .contact-card__actions a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: var(--sp-2xs) 0;
+    -webkit-tap-highlight-color: rgba(201,162,78,0.2);
+    touch-action: manipulation;
+  }
+
+  .contact-card__actions a + a {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .contact-card__actions .contact-card__sub {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 0;
+  }
+
+  .contact-card__body address {
+    font-size: var(--text-base);
+    line-height: var(--leading-snug);
+  }
+
+  a.contact-card {
+    -webkit-tap-highlight-color: rgba(201,162,78,0.15);
+    touch-action: manipulation;
+  }
+
+  .contact-card__arrow {
+    opacity: 1;
+    transform: translateX(0);
+    align-self: center;
+  }
+
+  .contact-card--wide {
+    padding: var(--sp-md);
+  }
+
+  .contact-card--wide .contact-card__body h3 {
+    color: var(--white);
+    text-transform: none;
+    letter-spacing: -0.01em;
+    font-size: var(--text-base);
+  }
 }
 
 /* ── 19. Services & Networks (Dual Timeline) ── */
