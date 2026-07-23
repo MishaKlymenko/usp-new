@@ -2033,6 +2033,91 @@ a.contact-card {
 }
 
 
+/* ── Mobile Services & Networks groups ── */
+.services-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .services-mobile {
+    display: block;
+  }
+
+  .timeline {
+    display: none;
+  }
+
+  .services-mobile__group + .services-mobile__group {
+    margin-top: var(--sp-xl);
+  }
+
+  .services-mobile__title {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-md);
+  }
+
+  .services-mobile__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  .services-mobile__card {
+    position: relative;
+    overflow: hidden;
+    padding: calc(var(--sp-md) + 5px) var(--sp-md) var(--sp-md);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+    text-align: left;
+  }
+
+  .services-mobile__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  }
+
+  .services-mobile__group--networks .services-mobile__card::before {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-400) 100%);
+  }
+
+  .services-mobile__card h4 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: var(--sp-2xs);
+    letter-spacing: -0.01em;
+  }
+
+  .services-mobile__group--services .services-mobile__card h4 {
+    color: var(--navy);
+  }
+
+  .services-mobile__group--networks .services-mobile__card h4 {
+    color: var(--navy-400);
+  }
+
+  .services-mobile__card p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 767px) {
   .timeline__head {
