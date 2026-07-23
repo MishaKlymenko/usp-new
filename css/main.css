@@ -774,6 +774,24 @@ body::before {
   margin: -4px;
 }
 
+@media (max-width: 767px) {
+  .hero__content h1 {
+    font-size: clamp(1.875rem, 1.15rem + 4vw, 2.35rem);
+  }
+
+  .hero__actions,
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero__actions .btn,
+  .btn-group .btn {
+    width: 100%;
+  }
+}
+
 /* ── 10. Page Header (Subpages) ────────────── */
 .page-hero {
   background: linear-gradient(135deg, var(--gray-950) 0%, var(--navy) 60%, var(--navy-400) 100%);
@@ -947,6 +965,58 @@ body::before {
 .photo-mosaic img:hover {
   transform: scale(1.05);
   filter: brightness(1.08);
+}
+
+@media (max-width: 767px) {
+  .split__media:has(.photo-mosaic) {
+    display: none;
+  }
+
+  .split:has(.photo-mosaic) .split__content {
+    text-align: center;
+  }
+
+  .split:has(.photo-mosaic) .split__content .accent-line {
+    margin-inline: auto;
+  }
+
+  .split:has(.photo-mosaic) .split__intro {
+    margin-inline: auto;
+    max-width: 62ch;
+  }
+
+  .split:has(.photo-mosaic) .feature-stack {
+    gap: var(--sp-sm);
+    width: 100%;
+  }
+
+  .split:has(.photo-mosaic) .feature-bar {
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 0;
+    padding: calc(var(--sp-md) + 5px) var(--sp-md) var(--sp-md);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .split:has(.photo-mosaic) .feature-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  }
+
+  .split:has(.photo-mosaic) .feature-bar__line {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
