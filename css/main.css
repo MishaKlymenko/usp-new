@@ -432,20 +432,31 @@ body::before {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--sp-xs);
   width: 100%;
 }
 
 .nav__menu .nav__menu-contacts a {
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5em 1em;
+  font-size: var(--text-base);
   font-weight: 400;
-  color: rgba(255,255,255,0.45);
-  padding: 0.2em 1em;
+  color: rgba(255,255,255,0.55);
   letter-spacing: 0.02em;
   background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color var(--duration) var(--ease);
 }
 
-.nav__menu .nav__menu-contacts a:hover {
+.nav__menu .nav__menu-contacts a:hover,
+.nav__menu .nav__menu-contacts a:focus-visible {
   color: var(--gold);
   background: none;
 }
