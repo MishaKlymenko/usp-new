@@ -95,14 +95,31 @@
 
   /* ── Team Card Tap-to-Reveal (touch devices) */
   var teamCards = document.querySelectorAll('.team-card');
+  var teamMobileMq = window.matchMedia('(max-width: 767px)');
+
+  function isTeamMobileLayout() {
+    return teamMobileMq.matches;
+  }
+
+  function syncTeamOverlayA11y() {
+    teamCards.forEach(function (card) {
+      var overlay = card.querySelector('.team-card__overlay');
+      if (overlay) {
+        overlay.setAttribute('aria-hidden', isTeamMobileLayout() ? 'false' : 'true');
+      }
+    });
+  }
+
   if (teamCards.length) {
     teamCards.forEach(function (card) {
       card.addEventListener('click', function () {
+        if (isTeamMobileLayout()) return;
         card.classList.toggle('is-active');
       });
 
       /* Close on Escape */
       card.addEventListener('keydown', function (e) {
+        if (isTeamMobileLayout()) return;
         if (e.key === 'Escape' && card.classList.contains('is-active')) {
           card.classList.remove('is-active');
         }
@@ -111,12 +128,20 @@
 
     /* Close any open card when clicking outside */
     document.addEventListener('click', function (e) {
+      if (isTeamMobileLayout()) return;
       if (!e.target.closest('.team-card')) {
         teamCards.forEach(function (c) {
           c.classList.remove('is-active');
         });
       }
     });
+
+    syncTeamOverlayA11y();
+    if (teamMobileMq.addEventListener) {
+      teamMobileMq.addEventListener('change', syncTeamOverlayA11y);
+    } else if (teamMobileMq.addListener) {
+      teamMobileMq.addListener(syncTeamOverlayA11y);
+    }
   }
 
   /* ── Testimonial Carousel ─────────────────── */

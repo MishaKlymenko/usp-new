@@ -917,6 +917,90 @@ body::before {
   font-size: 1.1em;
 }
 
+@media (max-width: 767px) {
+  :root {
+    --section-py: clamp(2.25rem, 1.5rem + 3.5vw, 4rem);
+  }
+
+  .accent-line {
+    display: none;
+  }
+
+  .hero {
+    padding-block: var(--section-py);
+  }
+
+  .page-hero {
+    padding-top: calc(76px + var(--sp-md));
+    padding-bottom: var(--section-py);
+  }
+
+  .cta,
+  .site-footer {
+    padding-block: var(--section-py);
+  }
+
+  /* About Us — intro split */
+  .split:has(#about-heading) {
+    gap: 0;
+  }
+
+  .split:has(#about-heading) .split__media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .split:has(#about-heading) .split__media img {
+    width: 55%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .split:has(#about-heading) .split__content {
+    text-align: center;
+  }
+
+  .split:has(#about-heading) #about-heading {
+    display: none;
+  }
+
+  .split:has(#about-heading) .split__intro {
+    margin-inline: auto;
+    max-width: 62ch;
+  }
+
+  .split:has(#about-heading) .lead-quote {
+    margin: var(--sp-sm) auto var(--sp-lg);
+    max-width: 62ch;
+    text-align: center;
+    border: none;
+    padding: 0;
+    font-size: var(--text-lg);
+    color: var(--navy-400);
+  }
+
+  .section__header {
+    margin-bottom: var(--sp-lg);
+  }
+
+  .section:has(#testimonials-heading) .section__header {
+    margin-bottom: var(--sp-md);
+  }
+
+  .section:has(#testimonials-heading) .carousel__slide {
+    padding-top: 0;
+  }
+
+  .section:has(#testimonials-heading) .carousel__quote {
+    padding-top: var(--sp-2xs);
+  }
+
+  .section:has(#testimonials-heading) .carousel__quote::before {
+    font-size: 2.5rem;
+    top: -0.05em;
+  }
+}
+
 /* ── 11. Feature Bars ──────────────────────── */
 .feature-bar {
   display: flex;
@@ -1045,21 +1129,19 @@ body::before {
     text-align: center;
   }
 
-  .split:has(.photo-mosaic) .split__content .accent-line {
-    margin-inline: auto;
-  }
-
   .split:has(.photo-mosaic) .split__intro {
     margin-inline: auto;
     max-width: 62ch;
   }
 
-  .split:has(.photo-mosaic) .feature-stack {
+  .split:has(.photo-mosaic) .feature-stack,
+  .section:has(#objectives-heading) .feature-list {
     gap: var(--sp-sm);
     width: 100%;
   }
 
-  .split:has(.photo-mosaic) .feature-bar {
+  .split:has(.photo-mosaic) .feature-bar,
+  .section:has(#objectives-heading) .feature-bar {
     position: relative;
     overflow: hidden;
     flex-direction: column;
@@ -1073,7 +1155,8 @@ body::before {
     box-shadow: var(--shadow-xs);
   }
 
-  .split:has(.photo-mosaic) .feature-bar::before {
+  .split:has(.photo-mosaic) .feature-bar::before,
+  .section:has(#objectives-heading) .feature-bar::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1083,7 +1166,8 @@ body::before {
     background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
   }
 
-  .split:has(.photo-mosaic) .feature-bar__line {
+  .split:has(.photo-mosaic) .feature-bar__line,
+  .section:has(#objectives-heading) .feature-bar__line {
     display: none;
   }
 }
@@ -1292,6 +1376,73 @@ body::before {
   }
   .team-card.is-active {
     box-shadow: var(--shadow-lg);
+  }
+}
+
+@media (max-width: 767px) {
+  .card-grid:has(.team-card) {
+    grid-template-columns: 1fr;
+    gap: var(--sp-sm);
+  }
+
+  .team-card {
+    cursor: default;
+  }
+
+  .team-card:hover,
+  .team-card.is-active {
+    transform: none;
+    box-shadow: var(--shadow-xs);
+    border-color: var(--border-light);
+  }
+
+  .team-card__img {
+    aspect-ratio: 5 / 4;
+  }
+
+  .team-card:hover .team-card__img img,
+  .team-card.is-active .team-card__img img {
+    transform: none;
+  }
+
+  .team-card__info {
+    padding: var(--sp-md) var(--sp-md) var(--sp-xs);
+  }
+
+  .team-card__name {
+    font-size: var(--text-lg);
+  }
+
+  .team-card__role {
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+
+  .team-card__overlay {
+    position: static;
+    inset: auto;
+    opacity: 1;
+    pointer-events: auto;
+    background: none;
+    display: block;
+    padding: 0 var(--sp-md) var(--sp-md);
+    overflow: visible;
+  }
+
+  .team-card__overlay .team-card__name,
+  .team-card__overlay .team-card__role {
+    display: none;
+  }
+
+  .team-card__overlay .team-card__bio {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    text-align: justify;
+    width: 100%;
+  }
+
+  .team-card__tap-hint {
+    display: none !important;
   }
 }
 
