@@ -345,23 +345,38 @@ body::before {
   align-items: center;
   justify-content: flex-start;
   gap: var(--sp-md);
-  padding-top: 25vh;
+  padding-top: calc(25px + var(--sp-md) + 15px + var(--sp-md) + 25px + 88px + var(--sp-md));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   transform: translateX(100%);
   transition: transform 0.4s var(--ease);
   z-index: 105;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .nav__menu.is-open {
   transform: translateX(0);
 }
 
+body.menu-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}
+
 @media (max-width: 1023px) {
-  .site-header:has(.nav__menu.is-open) {
+  .site-header.menu-open {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     border-bottom-color: transparent !important;
     box-shadow: none !important;
+    transform: none !important;
+    z-index: 200;
+  }
+
+  .site-header.menu-open.header--hidden {
+    transform: none !important;
   }
 
   .site-header .nav {
@@ -391,24 +406,24 @@ body::before {
       opacity var(--duration);
   }
 
-  .site-header:has(.nav__menu.is-open) .nav {
+  .site-header.menu-open .nav {
     padding-top: calc(var(--sp-md) + 3px);
     min-height: 104px;
   }
 
-  .site-header:has(.nav__menu.is-open) .nav__logo {
+  .site-header.menu-open .nav__logo {
     left: 50%;
     top: calc(var(--sp-md) + 25px);
     transform: translate(-50%, 0);
   }
 
-  .site-header:has(.nav__menu.is-open) .nav__logo img,
-  .site-header.scrolled:has(.nav__menu.is-open) .nav__logo img {
+  .site-header.menu-open .nav__logo img,
+  .site-header.scrolled.menu-open .nav__logo img {
     height: 88px;
     filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.25));
   }
 
-  .site-header:has(.nav__menu.is-open) .nav__toggle span {
+  .site-header.menu-open .nav__toggle span {
     background: var(--white);
   }
 }
@@ -421,6 +436,7 @@ body::before {
   border-radius: var(--radius-full);
   transition: all var(--duration) var(--ease);
   letter-spacing: -0.01em;
+  touch-action: manipulation;
 }
 
 .nav__menu a:hover,
@@ -433,7 +449,7 @@ body::before {
 .nav__menu-contacts {
   list-style: none;
   margin-top: auto;
-  padding: var(--sp-md) var(--sp-md) var(--sp-lg);
+  padding: var(--sp-md) var(--sp-md) calc(var(--sp-lg) + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid rgba(255,255,255,0.12);
   display: flex;
   flex-direction: column;
