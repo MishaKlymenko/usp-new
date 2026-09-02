@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   icons: {
     icon: [{ url: "/images/usp_favicon.avif", type: "image/avif" }],
-    apple: "/images/apple-touch-icon.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",

@@ -301,6 +301,8 @@ export default function AboutPage() {
                     src="/images/auc-logo.png"
                     alt="Association of Ukrainian Cities"
                     loading="lazy"
+                    width={124}
+                    height={128}
                   />
                 </div>
                 <span className="partners-list__name">
@@ -320,6 +322,8 @@ export default function AboutPage() {
                     src="/images/eca-logo.svg"
                     alt="Agency of European Cooperation"
                     loading="lazy"
+                    width={400}
+                    height={300}
                   />
                 </div>
                 <span className="partners-list__name">

@@ -23,6 +23,9 @@ export function TestimonialsCarousel({
   const startX = useRef(0);
   const dragging = useRef(false);
   const intervalRef = useRef<number | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const indexRef = useRef(index);
+  indexRef.current = index;
 
   useEffect(() => {
     reset();
@@ -39,6 +42,31 @@ export function TestimonialsCarousel({
       if (intervalRef.current) window.clearInterval(intervalRef.current);
     };
   }, [index, next, total]);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const onStart = (event: TouchEvent) => {
+      startX.current = event.touches[0].clientX;
+      dragging.current = true;
+    };
+    const onEnd = (event: TouchEvent) => {
+      if (!dragging.current) return;
+      const diff = startX.current - event.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        goTo(indexRef.current + (diff > 0 ? 1 : -1), total);
+      }
+      dragging.current = false;
+    };
+
+    track.addEventListener("touchstart", onStart, { passive: true });
+    track.addEventListener("touchend", onEnd, { passive: true });
+    return () => {
+      track.removeEventListener("touchstart", onStart);
+      track.removeEventListener("touchend", onEnd);
+    };
+  }, [goTo, total]);
 
   return (
     <div
@@ -57,20 +85,9 @@ export function TestimonialsCarousel({
       }}
     >
       <div
+        ref={trackRef}
         className="carousel__track"
         style={{ transform: `translateX(-${index * 100}%)` }}
-        onTouchStart={(event) => {
-          startX.current = event.touches[0].clientX;
-          dragging.current = true;
-        }}
-        onTouchEnd={(event) => {
-          if (!dragging.current) return;
-          const diff = startX.current - event.changedTouches[0].clientX;
-          if (Math.abs(diff) > 40) {
-            goTo(index + (diff > 0 ? 1 : -1), total);
-          }
-          dragging.current = false;
-        }}
       >
         {testimonials.map((item) => (
           <article className="carousel__slide" key={item.author}>

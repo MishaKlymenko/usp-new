@@ -3,15 +3,22 @@
   "short_name": "USP",
   "description": "Supporting international business investment in Ukraine's recovery and reconstruction.",
   "start_url": "/",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#0f1b2d",
   "theme_color": "#0f1b2d",
   "lang": "en",
   "icons": [
     {
-      "src": "/images/apple-touch-icon.png",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/logo_usp_v2.png",
+      "sizes": "1080x1080",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
