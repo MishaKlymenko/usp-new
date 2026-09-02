@@ -422,6 +422,9 @@ body.menu-open {
       padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* Keep transform identical in both states so interpolating
+     translateX(-50%) doesn't arc the logo while it also resizes
+     and switches between the coloured / inverted treatments. */
   .site-header .nav__logo {
     position: absolute;
     left: var(--container-px);
@@ -430,14 +433,13 @@ body.menu-open {
     z-index: 116;
     transition:
       left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-header .nav__logo img {
     transition:
       height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      filter 0.35s ease,
+      filter 0s linear 0.4s,
       opacity var(--duration);
   }
 
@@ -446,16 +448,22 @@ body.menu-open {
     min-height: 104px;
   }
 
-  .site-header.menu-open .nav__logo {
-    left: 50%;
-    top: calc(var(--sp-md) + 25px);
-    transform: translate(-50%, 0);
+  .site-header.menu-open .nav__logo,
+  .site-header.scrolled.menu-open .nav__logo {
+    /* 88px tall; intrinsic 473x454 → half width = 88 * 473 / 908 */
+    left: calc(50% - 88px * 473 / 908);
+    top: calc(var(--sp-md) + 25px + 44px);
+    transform: translateY(-50%);
   }
 
   .site-header.menu-open .nav__logo img,
   .site-header.scrolled.menu-open .nav__logo img {
     height: 88px;
     filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+    transition:
+      height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      filter 0s,
+      opacity var(--duration);
   }
 
   .site-header.menu-open .nav__toggle span {
