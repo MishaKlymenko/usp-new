@@ -1,5 +1,38 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {};
+const immutableAsset = [
+  {
+    key: "Cache-Control",
+    value: "public, max-age=31536000, immutable",
+  },
+];
+
+const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/images/:path*",
+        headers: immutableAsset,
+      },
+      {
+        source: "/fonts/:path*",
+        headers: immutableAsset,
+      },
+      {
+        source: "/apple-touch-icon.png",
+        headers: immutableAsset,
+      },
+      {
+        source: "/sw.js",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+    ];
+  },
+};
 
 export default nextConfig;

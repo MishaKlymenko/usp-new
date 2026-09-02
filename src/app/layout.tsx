@@ -3,6 +3,7 @@ import "@/styles/main.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { PwaRegister } from "@/components/PwaRegister";
 
 const description =
   "Ukraine Strategic Partners helps international companies invest in Ukraine's recovery with expert guidance, government networks, and 20+ years of regional experience.";
@@ -97,6 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         {children}
         <Footer />
+        <PwaRegister />
       </body>
     </html>
   );

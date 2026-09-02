@@ -126,7 +126,8 @@ export function TestimonialsCarousel({
               key={item.author}
               type="button"
               className={`carousel__dot${i === index ? " is-active" : ""}`}
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={`Go to testimonial ${i + 1}`}
+              aria-current={i === index ? "true" : undefined}
               onClick={() => goTo(i, total)}
             />
           ))}

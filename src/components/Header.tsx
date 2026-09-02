@@ -101,8 +101,8 @@ export function Header() {
           <img
             src="/images/logo-header.png"
             alt="Ukraine Strategic Partners"
-            width={473}
-            height={454}
+            width={180}
+            height={80}
           />
         </Link>
         <button
@@ -116,9 +116,9 @@ export function Header() {
             else openMenu();
           }}
         >
-          <span />
-          <span />
-          <span />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
         </button>
         <ul id="nav-menu" className={menuClass} role="list">
           {NAV_ITEMS.map((item) => {
@@ -127,7 +127,7 @@ export function Header() {
 
             if (external) {
               return (
-                <li key={item.href}>
+                <li key={item.href} role="listitem">
                   <a
                     href={item.href}
                     target="_blank"
@@ -143,7 +143,7 @@ export function Header() {
             }
 
             return (
-              <li key={item.href}>
+              <li key={item.href} role="listitem">
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
@@ -161,7 +161,7 @@ export function Header() {
               </li>
             );
           })}
-          <li className="nav__menu-contacts" role="none">
+          <li className="nav__menu-contacts" role="listitem">
             {PHONES.map((phone) => (
               <a
                 key={phone.href}

@@ -48,7 +48,7 @@
   --sky:        #38bdf8;
   --gold:       #c9a24e;
   --gold-light: #e8c36a;
-  --gold-text:  #8a6a28;
+  --gold-text:  #7a5c20;
   --gold-muted: rgba(201,162,78,0.15);
 
   /* Neutral scale */
@@ -272,11 +272,24 @@ body::before {
 
 /* Scrolled — frosted glass, compact */
 .site-header.scrolled {
+  background: transparent;
+  border-bottom-color: var(--border-light);
+  box-shadow: 0 1px 0 var(--border-light), var(--shadow-md);
+}
+
+.site-header.scrolled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom-color: var(--border-light);
-  box-shadow: 0 1px 0 var(--border-light), var(--shadow-md);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-header.menu-open.scrolled::before {
+  opacity: 0;
 }
 
 /* Smart hide on scroll down */
@@ -294,6 +307,8 @@ body::before {
   max-width: var(--container-max);
   margin-inline: auto;
   min-height: 72px;
+  position: relative;
+  z-index: 1;
 }
 
 .nav__logo {
@@ -326,8 +341,12 @@ body::before {
 .nav__toggle {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
-  padding: 10px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
   z-index: 110;
   -webkit-tap-highlight-color: transparent;
   border-radius: var(--radius-sm);
@@ -423,9 +442,6 @@ body.menu-open {
       padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Keep transform identical in both states so interpolating
-     translateX(-50%) doesn't arc the logo while it also resizes
-     and switches between the coloured / inverted treatments. */
   .site-header .nav__logo {
     position: absolute;
     left: var(--container-px);
@@ -434,7 +450,8 @@ body.menu-open {
     z-index: 116;
     transition:
       left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-header .nav__logo img {
@@ -449,12 +466,10 @@ body.menu-open {
     min-height: 104px;
   }
 
-  .site-header.menu-open .nav__logo,
-  .site-header.scrolled.menu-open .nav__logo {
-    /* 88px tall; intrinsic 473x454 → half width = 88 * 473 / 908 */
-    left: calc(50% - 88px * 473 / 908);
-    top: calc(var(--sp-md) + 25px + 44px);
-    transform: translateY(-50%);
+  .site-header.menu-open .nav__logo {
+    left: 50%;
+    top: calc(var(--sp-md) + 25px);
+    transform: translate(-50%, 0);
   }
 
   .site-header.menu-open .nav__logo img,
@@ -475,17 +490,20 @@ body.menu-open {
 .nav__menu a {
   font-size: var(--text-xl);
   font-weight: 500;
-  color: rgba(255,255,255,0.9);
+  color: #fff;
   padding: var(--sp-xs) var(--sp-lg);
   border-radius: var(--radius-full);
   transition: all var(--duration) var(--ease);
   letter-spacing: -0.01em;
   touch-action: manipulation;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav__menu a:hover,
 .nav__menu a[aria-current="page"] {
-  color: var(--gold);
+  color: var(--gold-light);
   background: rgba(255,255,255,0.08);
 }
 
@@ -506,11 +524,11 @@ body.menu-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0.5em 1em;
   font-size: var(--text-base);
   font-weight: 400;
-  color: rgba(255,255,255,0.78);
+  color: #fff;
   letter-spacing: 0.02em;
   background: none;
   border: none;
@@ -523,7 +541,7 @@ body.menu-open {
 
 .nav__menu .nav__menu-contacts a:hover,
 .nav__menu .nav__menu-contacts a:focus-visible {
-  color: var(--gold);
+  color: var(--gold-light);
   background: none;
 }
 
@@ -595,7 +613,7 @@ body.menu-open {
   }
 
   .site-header.scrolled .nav__menu a[aria-current="page"] {
-    color: var(--gold-text);
+    color: var(--navy);
     background: var(--gold-muted);
   }
 
@@ -651,7 +669,7 @@ body.menu-open {
 }
 
 .btn--outline {
-  background: rgba(10, 15, 26, 0.62);
+  background: rgba(10, 15, 26, 0.78);
   color: #fff;
   border: 2px solid rgba(255,255,255,0.85);
   padding: calc(0.8em - 2px) calc(2em - 2px);
@@ -778,7 +796,7 @@ body.menu-open {
 
 .section--navy .section__header p,
 .section--navy-deep .section__header p {
-  color: rgba(255,255,255,0.82);
+  color: #e8eaed;
 }
 
 /* Accent line — refined */
@@ -838,12 +856,12 @@ body.menu-open {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 50%, rgba(30,58,95,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 50%, rgba(30,58,95,0.62) 0%, transparent 60%),
     linear-gradient(180deg,
-      rgba(10,15,26,0.58) 0%,
-      rgba(10,15,26,0.52) 30%,
-      rgba(10,15,26,0.62) 70%,
-      rgba(10,15,26,0.84) 100%
+      rgba(10,15,26,0.72) 0%,
+      rgba(10,15,26,0.68) 30%,
+      rgba(10,15,26,0.74) 70%,
+      rgba(10,15,26,0.92) 100%
     );
 }
 
@@ -866,6 +884,15 @@ body.menu-open {
   z-index: 1;
   max-width: 820px;
   margin-inline: auto;
+}
+
+.hero__content::before {
+  content: "";
+  position: absolute;
+  inset: -12% -8%;
+  background: radial-gradient(ellipse at center, rgba(10, 15, 26, 0.45) 0%, transparent 72%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero__content h1 {
@@ -952,12 +979,15 @@ body.menu-open {
   justify-content: center;
   gap: var(--sp-xs);
   font-size: var(--text-sm);
-  color: rgba(255,255,255,0.72);
+  color: #fff;
   font-weight: 400;
 }
 
 .breadcrumb a {
-  color: rgba(255,255,255,0.85);
+  color: #fff;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
   transition: color var(--duration);
 }
 
@@ -1087,7 +1117,7 @@ body.menu-open {
 
 .section--navy .feature-bar__content p,
 .section--navy-deep .feature-bar__content p {
-  color: rgba(255,255,255,0.82);
+  color: #e8eaed;
 }
 
 .section--navy .feature-bar__content h3,
@@ -1473,6 +1503,10 @@ body.menu-open {
     line-height: var(--leading-snug);
   }
 
+  .team-card__tap-hint {
+    display: none;
+  }
+
   .team-card__overlay,
   .team-card:hover .team-card__overlay,
   .team-card.is-active .team-card__overlay,
@@ -1677,8 +1711,8 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: 1px solid var(--border-light);
   background: var(--white);
@@ -1696,22 +1730,36 @@ body.menu-open {
 
 .carousel__dots {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
 }
 
 .carousel__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border-light);
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
   transition: all 0.3s var(--ease);
 }
 
-.carousel__dot.is-active {
+.carousel__dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transform: translate(-50%, -50%);
+  transition: all 0.3s var(--ease);
+}
+
+.carousel__dot.is-active::after {
   background: var(--gold);
   width: 24px;
   border-radius: 4px;
@@ -1805,7 +1853,7 @@ a.contact-card {
 }
 
 .contact-card--wide .contact-card__sub {
-  color: rgba(255, 255, 255, 0.72);
+  color: #fff;
 }
 
 .contact-card--wide .contact-card__icon {
@@ -1994,7 +2042,7 @@ a.contact-card {
   .contact-card__actions a {
     display: flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 48px;
     padding: var(--sp-2xs) 0;
     touch-action: manipulation;
   }
@@ -2383,7 +2431,7 @@ a.contact-card {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center, rgba(10,15,26,0.72) 0%, rgba(10,15,26,0.88) 100%);
+    radial-gradient(ellipse at center, rgba(10,15,26,0.82) 0%, rgba(10,15,26,0.92) 100%);
 }
 
 .cta__content {
@@ -2428,7 +2476,7 @@ a.contact-card {
 /* ── 22. Footer ────────────────────────────── */
 .site-footer {
   background: var(--gray-950);
-  color: rgba(255,255,255,0.78);
+  color: #e8eaed;
   padding-block: var(--sp-3xl) var(--sp-xl);
   position: relative;
 }
@@ -2478,6 +2526,9 @@ a.contact-card {
   font-weight: 500;
   transition: color var(--duration);
   letter-spacing: -0.01em;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer__nav a:hover {
@@ -2497,9 +2548,9 @@ a.contact-card {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
+  min-height: 48px;
   padding: 0.25em 0.5em;
-  color: rgba(255,255,255,0.75);
+  color: #fff;
   transition: color var(--duration);
   touch-action: manipulation;
 }
@@ -2510,7 +2561,7 @@ a.contact-card {
 
 .footer__copy {
   font-size: var(--text-xs);
-  color: rgba(255,255,255,0.72);
+  color: #d5d8dc;
   padding-top: var(--sp-lg);
   border-top: 1px solid rgba(255,255,255,0.06);
   text-align: center;
@@ -2548,10 +2599,10 @@ a.contact-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    min-height: 48px;
     padding: var(--sp-xs);
     border-radius: var(--radius-sm);
-    color: rgba(255,255,255,0.8);
+    color: #fff;
   }
 
   .footer__contact {
@@ -2566,8 +2617,8 @@ a.contact-card {
 
   .footer__contact a {
     width: 100%;
-    min-height: 44px;
-    color: rgba(255,255,255,0.85);
+    min-height: 48px;
+    color: #fff;
   }
 
   .footer__copy {
@@ -2625,7 +2676,7 @@ a.contact-card {
 }
 
 .section__body-text--light {
-  color: rgba(255,255,255,0.7);
+  color: #e8eaed;
 }
 
 /* Split intro paragraph */

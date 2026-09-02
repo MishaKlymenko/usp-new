@@ -25,7 +25,13 @@ function unlockBody(scrollY: number, restore: boolean) {
   if (typeof document === "undefined") return;
   document.body.classList.remove("menu-open");
   document.body.style.top = "";
-  if (restore) window.scrollTo(0, scrollY);
+  if (restore) {
+    const html = document.documentElement;
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    window.scrollTo(0, scrollY);
+    html.style.scrollBehavior = prev;
+  }
 }
 
 export const useUiStore = create<UiState>((set, get) => ({

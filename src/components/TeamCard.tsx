@@ -77,7 +77,8 @@ export function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article
       className={`team-card${isActive ? " is-active" : ""}`}
-      tabIndex={0}
+      tabIndex={tapReveal ? 0 : undefined}
+      role={tapReveal ? "button" : undefined}
       aria-label={member.label}
       onClick={() => {
         if (!tapReveal) return;
