@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@/styles/main.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     template: "%s — Ukraine Strategic Partners",
   },
   description,
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: [{ url: "/images/usp_favicon.avif", type: "image/avif" }],
     apple: "/images/apple-touch-icon.png",
@@ -35,6 +36,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/images/USP-social.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0f1b2d",
+  width: "device-width",
+  initialScale: 1,
 };
 
 const organizationLd = {
@@ -72,7 +79,7 @@ const organizationLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link
           rel="preload"

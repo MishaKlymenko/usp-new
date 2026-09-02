@@ -101,8 +101,8 @@ export function Header() {
           <img
             src="/images/logo-header.png"
             alt="Ukraine Strategic Partners"
-            width={180}
-            height={80}
+            width={473}
+            height={454}
           />
         </Link>
         <button

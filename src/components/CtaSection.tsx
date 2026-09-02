@@ -20,6 +20,7 @@ export function CtaSection({
       <div className="cta__bg">
         <LazyImage
           src="/images/parallax-footer.avif"
+          alt=""
           width={1920}
           height={1280}
         />

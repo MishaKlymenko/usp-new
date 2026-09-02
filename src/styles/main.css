@@ -48,6 +48,7 @@
   --sky:        #38bdf8;
   --gold:       #c9a24e;
   --gold-light: #e8c36a;
+  --gold-text:  #8a6a28;
   --gold-muted: rgba(201,162,78,0.15);
 
   /* Neutral scale */
@@ -594,7 +595,7 @@ body.menu-open {
   }
 
   .site-header.scrolled .nav__menu a[aria-current="page"] {
-    color: var(--gold);
+    color: var(--gold-text);
     background: var(--gold-muted);
   }
 
@@ -811,17 +812,17 @@ body.menu-open {
 .hero__bg {
   position: absolute;
   inset: -3%;
-  background-image: url('/images/hero-sm.avif');
-  background-size: cover;
-  background-position: center;
   z-index: 0;
+  overflow: hidden;
   animation: hero-wave 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
-@media (min-width: 768px) {
-  .hero__bg {
-    background-image: url('/images/hero.avif');
-  }
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
 }
 
 @keyframes hero-wave {
@@ -950,7 +951,7 @@ body.menu-open {
   justify-content: center;
   gap: var(--sp-xs);
   font-size: var(--text-sm);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.72);
   font-weight: 400;
 }
 
@@ -1338,7 +1339,7 @@ body.menu-open {
 
 .team-card__role {
   font-size: var(--text-xs);
-  color: var(--gold);
+  color: var(--gold-text);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -1803,7 +1804,7 @@ a.contact-card {
 }
 
 .contact-card--wide .contact-card__sub {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .contact-card--wide .contact-card__icon {
@@ -1812,6 +1813,11 @@ a.contact-card {
 }
 
 .contact-card--wide .contact-card__arrow {
+  color: var(--gold-light);
+}
+
+.contact-card--wide .contact-card__body a.contact-card__value:hover,
+.contact-card--wide .contact-card__body a.contact-card__sub:hover {
   color: var(--gold-light);
 }
 
@@ -1884,7 +1890,7 @@ a.contact-card {
 
 .contact-card__body a.contact-card__value:hover,
 .contact-card__body a.contact-card__sub:hover {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .contact-card__sub {
@@ -1903,7 +1909,7 @@ a.contact-card {
 /* Arrow indicator for clickable cards */
 .contact-card__arrow {
   font-size: 1.25rem;
-  color: var(--gold);
+  color: var(--gold-text);
   opacity: 0;
   transform: translateX(-8px);
   transition: all 0.35s var(--ease);
@@ -2203,7 +2209,7 @@ a.contact-card {
 }
 
 .timeline__row.tl-active-row .timeline__card h4 {
-  color: var(--gold);
+  color: var(--gold-text);
 }
 
 .timeline__card p {
@@ -2502,7 +2508,7 @@ a.contact-card {
 
 .footer__copy {
   font-size: var(--text-xs);
-  opacity: 0.4;
+  color: rgba(255,255,255,0.72);
   padding-top: var(--sp-lg);
   border-top: 1px solid rgba(255,255,255,0.06);
   text-align: center;
@@ -2613,7 +2619,7 @@ a.contact-card {
   text-align: center;
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  color: var(--text-muted);
+  color: var(--gray-700);
 }
 
 .section__body-text--light {

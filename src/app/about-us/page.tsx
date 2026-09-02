@@ -166,7 +166,7 @@ export default function AboutPage() {
           "@context": "https://schema.org",
           "@type": "AboutPage",
           name: "About Ukraine Strategic Partners",
-          url: "https://usp-ukraine.com/about-us.html",
+          url: "https://usp-ukraine.com/about-us",
           mainEntity: {
             "@type": "Organization",
             name: "Ukraine Strategic Partners",

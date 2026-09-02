@@ -64,8 +64,38 @@ const mosaic = [
 export default function HomePage() {
   return (
     <main id="main">
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero-sm.avif"
+        type="image/avif"
+        media="(max-width: 767px)"
+      />
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero.avif"
+        type="image/avif"
+        media="(min-width: 768px)"
+      />
       <section className="hero" aria-label="Introduction">
-        <div className="hero__bg" />
+        <div className="hero__bg">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/hero-sm.avif"
+              type="image/avif"
+            />
+            <img
+              src="/images/hero.avif"
+              alt=""
+              width={1920}
+              height={1280}
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
+        </div>
         <div className="hero__content">
           <h1>Supporting International Business in Ukraine</h1>
           <p>

@@ -28,7 +28,7 @@ export default function ContactsPage() {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact Ukraine Strategic Partners",
-          url: "https://usp-ukraine.com/contacts.html",
+          url: "https://usp-ukraine.com/contacts",
           mainEntity: {
             "@type": "Organization",
             name: "Ukraine Strategic Partners",

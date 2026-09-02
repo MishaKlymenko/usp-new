@@ -13,8 +13,8 @@ export function Footer() {
               <img
                 src="/images/logo_usp_ua_mono.png"
                 alt="Ukraine Strategic Partners"
-                width={240}
-                height={120}
+                width={484}
+                height={587}
                 loading="lazy"
                 decoding="async"
               />
