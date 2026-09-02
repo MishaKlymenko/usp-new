@@ -5,6 +5,22 @@
 (function () {
   'use strict';
 
+  const mainCss = document.querySelector('link[href="css/main.css"]');
+  function applyMainCss() {
+    if (!mainCss) return;
+    if (mainCss.rel === 'preload') {
+      mainCss.rel = 'stylesheet';
+    }
+    document.documentElement.classList.add('css-loaded');
+  }
+  if (mainCss && mainCss.rel === 'preload') {
+    if (mainCss.sheet) {
+      applyMainCss();
+    } else {
+      mainCss.addEventListener('load', applyMainCss);
+    }
+  }
+
   /* ── Mobile Navigation ───────────────────── */
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');
@@ -59,6 +75,12 @@
     window.scrollTo(0, lockedScrollY);
   }
 
+  function releaseScrollLockForNavigation() {
+    document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    if (header) header.classList.remove('menu-open');
+  }
+
   function openMobileMenu() {
     menu.classList.add('is-open');
     toggle.setAttribute('aria-expanded', 'true');
@@ -69,34 +91,6 @@
     menu.classList.remove('is-open');
     toggle.setAttribute('aria-expanded', 'false');
     unlockScroll();
-  }
-
-  function navigateAfterMenuClose(url) {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducedMotion || !isMenuOpen()) {
-      location.href = url;
-      return;
-    }
-
-    let navigated = false;
-    function go() {
-      if (navigated) return;
-      navigated = true;
-      location.href = url;
-    }
-
-    const logo = header && header.querySelector('.nav__logo');
-    if (logo) {
-      logo.addEventListener('transitionend', function onEnd(event) {
-        if (event.target !== logo) return;
-        if (event.propertyName !== 'transform' && event.propertyName !== '-webkit-transform') return;
-        logo.removeEventListener('transitionend', onEnd);
-        go();
-      });
-    }
-
-    closeMobileMenu();
-    window.setTimeout(go, 450);
   }
 
   if (toggle && menu) {
@@ -129,8 +123,7 @@
             closeMobileMenu();
             return;
           }
-          e.preventDefault();
-          navigateAfterMenuClose(destination.href);
+          releaseScrollLockForNavigation();
           return;
         }
 

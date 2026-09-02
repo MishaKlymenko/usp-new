@@ -12,9 +12,38 @@
   <link rel="preload" href="fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
   <style>
     @font-face{font-family:'Lora';font-style:normal;font-weight:500 700;font-display:swap;src:url('fonts/lora-latin.woff2') format('woff2')}
-    h1,h2{font-family:'Lora',Georgia,serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:#fff}
+    body{margin:0;color:#1e293b;font-family:system-ui,-apple-system,sans-serif;overflow-x:hidden}
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    h1,h2{font-family:'Lora',Georgia,serif;font-weight:600}
+    body::before{content:'';position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0f1b2d,#c9a24e,#0f1b2d);z-index:1000}
+    .skip-link{position:absolute;top:-100%}
+    .site-header{position:fixed;top:3px;left:0;right:0;z-index:100}
+    .nav{display:flex;align-items:center;justify-content:flex-end;position:relative;min-height:72px;padding:.75rem clamp(1.25rem,.5rem + 3vw,2.5rem) .5rem}
+    .nav__logo{position:absolute;left:clamp(1.25rem,.5rem + 3vw,2.5rem);top:50%;transform:translateY(-50%);z-index:115}
+    .nav__logo img{height:64px;width:auto;object-fit:contain;filter:brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,.2))}
+    .nav__toggle{display:flex;flex-direction:column;gap:5px;padding:10px;z-index:110;border:0;background:0}
+    .nav__toggle span{display:block;width:20px;height:2px;background:#fff;border-radius:2px}
+    .nav__menu{position:fixed;inset:0;background:#0f1b2d;transform:translateX(100%);z-index:105}
+    .nav__menu.is-open{transform:none}
+    .nav__menu a{color:rgba(255,255,255,.9)}
+    .page-hero{background:linear-gradient(135deg,#0a0f1a,#0f1b2d 60%,#1e3a5f);color:#fff;padding:calc(4.5rem + 80px) clamp(1.25rem,.5rem + 3vw,2.5rem) 2rem;text-align:center}
+    .page-hero h1{color:#fff;font-size:clamp(1.875rem,1.35rem + 2.6vw,3rem);margin:0 0 .5rem}
+    @media(min-width:1024px){
+      .nav{justify-content:space-between;min-height:90px}
+      .nav__logo{position:relative;left:auto;top:auto;transform:none}
+      .nav__logo img{height:80px}
+      .nav__toggle{display:none}
+      .nav__menu{position:static;transform:none;inset:auto;background:transparent;display:flex;flex-direction:row;align-items:center;padding:0;gap:.25rem}
+      .nav__menu a{font-size:.875rem;padding:.5em 1em}
+      .nav__menu-contacts{display:none}
+    }
   </style>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet';requestAnimationFrame(function(){document.documentElement.classList.add('css-loaded')})">
+  <noscript><link rel="stylesheet" href="css/main.css"></noscript>
 
   <meta property="og:title" content="Our Services — Ukraine Strategic Partners">
   <meta property="og:description" content="Sector analysis, government relations, political intelligence, risk mitigation and in-country support for Ukraine investment.">
