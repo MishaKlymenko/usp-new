@@ -8,11 +8,12 @@
   <link rel="canonical" href="https://usp-ukraine.com/opportunities.html">
 
   <link rel="icon" href="images/usp_favicon.avif" type="image/avif">
-  <link rel="icon" href="images/logo_usp_v2.png" type="image/png">
-  <link rel="apple-touch-icon" href="images/logo_usp_v2.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="css/main.css" as="style">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preload" href="fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+  <style>
+    @font-face{font-family:'Lora';font-style:normal;font-weight:500 700;font-display:swap;src:url('fonts/lora-latin.woff2') format('woff2')}
+    h1,h2{font-family:'Lora',Georgia,serif}
+  </style>
   <link rel="stylesheet" href="css/main.css">
 
   <meta property="og:title" content="Opportunities in Ukraine — Ukraine Strategic Partners">
@@ -111,7 +112,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/energy.jpg" alt="Energy sector in Ukraine" loading="lazy" width="600" height="375">
+              <img src="images/sectors/energy.avif" alt="Energy sector in Ukraine" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">Energy</h3>
@@ -121,7 +122,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/defence.jpg" alt="Defence sector in Ukraine" loading="lazy" width="600" height="375">
+              <img src="images/sectors/defence.avif" alt="Defence sector in Ukraine" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">Defence</h3>
@@ -131,7 +132,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/agro.jpg" alt="Agriculture in Ukraine" loading="lazy" width="600" height="375">
+              <img src="images/sectors/agro.avif" alt="Agriculture in Ukraine" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">Agriculture &amp; Agro-Processing</h3>
@@ -141,7 +142,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/it1.jpg" alt="IT and technology sector" loading="lazy" width="600" height="375">
+              <img src="images/sectors/it1.avif" alt="IT and technology sector" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">IT &amp; Technology</h3>
@@ -151,7 +152,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/building1.jpg" alt="Construction and infrastructure" loading="lazy" width="600" height="375">
+              <img src="images/sectors/building1.avif" alt="Construction and infrastructure" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">Construction</h3>
@@ -161,7 +162,7 @@
 
           <article class="sector-card">
             <div class="sector-card__img">
-              <img src="images/sectors/minerals2.jpg" alt="Critical minerals extraction" loading="lazy" width="600" height="375">
+              <img src="images/sectors/minerals2.avif" alt="Critical minerals extraction" loading="lazy" width="600" height="375">
             </div>
             <div class="sector-card__body">
               <h3 class="sector-card__title">Critical Minerals</h3>
@@ -219,7 +220,9 @@
 
     <!-- CTA -->
     <section class="cta" aria-label="Call to action">
-      <div class="cta__bg" style="background-image:url('images/parallax-footer.jpg')"></div>
+      <div class="cta__bg">
+        <img data-src="images/parallax-footer.avif" alt="" width="1920" height="1280" decoding="async" fetchpriority="low">
+      </div>
       <div class="cta__content" data-reveal>
         <h2>Ready to Explore Opportunities?</h2>
         <p>Contact us to learn more about specific investment opportunities and how we can support your business in Ukraine's reconstruction and growth.</p>
@@ -236,7 +239,7 @@
     <div class="container">
       <div class="footer__inner">
         <div class="footer__logo">
-          <a href="index.html"><img src="images/logo_usp_ua_mono.png" alt="Ukraine Strategic Partners" width="240" height="120"></a>
+          <a href="index.html"><img src="images/logo_usp_ua_mono.png" alt="Ukraine Strategic Partners" width="240" height="120" loading="lazy" decoding="async"></a>
         </div>
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="about-us.html">About Us</a>

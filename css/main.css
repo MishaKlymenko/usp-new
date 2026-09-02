@@ -3,8 +3,39 @@
    Premium · Elegant · Modern
    ============================================ */
 
-/* ── 1. Font Import ────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
+/* ── 1. Self-hosted fonts (latin + latin-ext) ── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('../fonts/lora-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 500 700;
+  font-display: swap;
+  src: url('../fonts/lora-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 /* ── 2. Design Tokens ──────────────────────── */
 :root {
@@ -382,21 +413,15 @@ body.menu-open {
   .site-header .nav {
     position: relative;
     justify-content: flex-end;
-    transition:
-      min-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-header .nav__logo {
     position: absolute;
     left: var(--container-px);
     top: 50%;
-    transform: translateY(-50%);
     z-index: 116;
-    transition:
-      left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate3d(0, -50%, 0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .site-header .nav__logo img {
@@ -406,15 +431,12 @@ body.menu-open {
       opacity var(--duration);
   }
 
-  .site-header.menu-open .nav {
-    padding-top: calc(var(--sp-md) + 3px);
-    min-height: 104px;
-  }
-
   .site-header.menu-open .nav__logo {
-    left: 50%;
-    top: calc(var(--sp-md) + 25px);
-    transform: translate(-50%, 0);
+    transform: translate3d(
+      calc(50vw - 50% - var(--container-px)),
+      calc(var(--sp-md) + 25px - 36px),
+      0
+    );
   }
 
   .site-header.menu-open .nav__logo img,
@@ -762,16 +784,23 @@ body.menu-open {
   padding: var(--sp-3xl) var(--container-px);
   color: var(--white);
   overflow: hidden;
+  background: var(--gray-950);
 }
 
 .hero__bg {
   position: absolute;
   inset: -3%;
+  background-image: url('../images/hero-sm.avif');
   background-size: cover;
   background-position: center;
   z-index: 0;
   animation: hero-wave 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .hero__bg {
+    background-image: url('../images/hero.avif');
+  }
 }
 
 @keyframes hero-wave {
@@ -1313,10 +1342,11 @@ body.menu-open {
   overflow-y: auto;
 }
 
-.team-card:hover .team-card__overlay,
-.team-card.is-active .team-card__overlay {
-  opacity: 1;
-  pointer-events: auto;
+@media (hover: hover) {
+  .team-card:hover .team-card__overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .team-card__overlay .team-card__name {
@@ -1359,7 +1389,7 @@ body.menu-open {
   }
 }
 
-/* Remove hover lift on touch devices — tap toggles overlay instead */
+/* Touch (no hover): tap toggles overlay on tablet; phones use the stacked layout below */
 @media (hover: none) {
   .team-card:hover {
     transform: none;
@@ -1373,6 +1403,7 @@ body.menu-open {
   }
   .team-card.is-active .team-card__overlay {
     opacity: 1;
+    pointer-events: auto;
   }
   .team-card.is-active {
     box-shadow: var(--shadow-lg);
@@ -1419,7 +1450,10 @@ body.menu-open {
     line-height: var(--leading-snug);
   }
 
-  .team-card__overlay {
+  .team-card__overlay,
+  .team-card:hover .team-card__overlay,
+  .team-card.is-active .team-card__overlay,
+  .team-card:focus .team-card__overlay {
     position: static;
     inset: auto;
     opacity: 1;
@@ -1435,7 +1469,10 @@ body.menu-open {
     display: none;
   }
 
-  .team-card__overlay .team-card__bio {
+  .team-card__overlay .team-card__bio,
+  .team-card:hover .team-card__overlay .team-card__bio,
+  .team-card.is-active .team-card__overlay .team-card__bio,
+  .team-card:focus .team-card__overlay .team-card__bio {
     font-size: var(--text-sm);
     color: var(--text-muted);
     text-align: justify;
@@ -2293,6 +2330,7 @@ a.contact-card {
   text-align: center;
   color: var(--white);
   overflow: hidden;
+  background: var(--gray-950);
 }
 
 .cta__bg {
@@ -2301,6 +2339,15 @@ a.contact-card {
   background-size: cover;
   background-position: center;
   z-index: 0;
+}
+
+.cta__bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .cta__bg::after {

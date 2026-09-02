@@ -9,18 +9,13 @@
 
   <!-- Icons -->
   <link rel="icon" href="images/usp_favicon.avif" type="image/avif">
-  <link rel="icon" href="images/logo_usp_v2.png" type="image/png">
-  <link rel="apple-touch-icon" href="images/logo_usp_v2.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Preload critical assets -->
-  <link rel="preload" href="css/main.css" as="style">
-  <link rel="preload" href="images/hero.avif" as="image" type="image/avif">
-
-  <!-- Styles -->
+  <link rel="preload" href="fonts/lora-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+  <style>
+    @font-face{font-family:'Lora';font-style:normal;font-weight:500 700;font-display:swap;src:url('fonts/lora-latin.woff2') format('woff2')}
+    h1,h2{font-family:'Lora',Georgia,serif}
+  </style>
   <link rel="stylesheet" href="css/main.css">
 
   <!-- Open Graph -->
@@ -108,7 +103,7 @@
 
     <!-- Hero -->
     <section class="hero" aria-label="Introduction">
-      <div class="hero__bg" style="background-image:url('images/hero.avif')"></div>
+      <div class="hero__bg"></div>
       <div class="hero__content">
         <h1>Supporting International Business in Ukraine</h1>
         <p>At Ukraine Strategic Partners (USP) we help businesses investing in Ukraine's recovery. We create opportunities to drive growth and reconstruction, drawing on deep regional expertise, strategic partnerships, and government incentives.</p>
@@ -138,12 +133,12 @@
         <div class="split" data-reveal>
           <div class="split__media">
             <div class="photo-mosaic">
-              <img src="images/Who-we-are/section3.jpeg" alt="Ukrainian and British flags representing cooperation" loading="lazy">
-              <img src="images/Who-we-are/section2.jpeg" alt="Ukrainian reconstruction efforts" loading="lazy">
-              <img src="images/Who-we-are/section1.jpeg" alt="Protection and preservation of Ukraine" loading="lazy">
-              <img src="images/Who-we-are/section4.jpeg" alt="Reconstruction of Ukrainian cities" loading="lazy">
-              <img src="images/Who-we-are/section5.avif" alt="Agricultural combine in Ukrainian field" loading="lazy">
-              <img src="images/Who-we-are/section6.jpeg" alt="Ukraine on the path to the EU" loading="lazy">
+              <img src="images/Who-we-are/section3.avif" alt="Ukrainian and British flags representing cooperation" loading="lazy" width="1000" height="666">
+              <img src="images/Who-we-are/section2.avif" alt="Ukrainian reconstruction efforts" loading="lazy" width="1000" height="560">
+              <img src="images/Who-we-are/section1.avif" alt="Protection and preservation of Ukraine" loading="lazy" width="1000" height="666">
+              <img src="images/Who-we-are/section4.avif" alt="Reconstruction of Ukrainian cities" loading="lazy" width="1000" height="563">
+              <img src="images/Who-we-are/section5.avif" alt="Agricultural combine in Ukrainian field" loading="lazy" width="1000" height="667">
+              <img src="images/Who-we-are/section6.avif" alt="Ukraine on the path to the EU" loading="lazy" width="1000" height="666">
             </div>
           </div>
           <div class="split__content">
@@ -192,7 +187,9 @@
 
     <!-- CTA -->
     <section class="cta" aria-label="Call to action">
-      <div class="cta__bg" style="background-image:url('images/parallax-footer.jpg')"></div>
+      <div class="cta__bg">
+        <img data-src="images/parallax-footer.avif" alt="" width="1920" height="1280" decoding="async" fetchpriority="low">
+      </div>
       <div class="cta__content" data-reveal>
         <h2>Let's Rebuild Together</h2>
         <p>Ready to explore opportunities in Ukraine's reconstruction? Contact us to learn how we can support your business investment in Ukraine's future.</p>
@@ -211,7 +208,7 @@
       <div class="footer__inner">
         <div class="footer__logo">
           <a href="index.html">
-            <img src="images/logo_usp_ua_mono.png" alt="Ukraine Strategic Partners" width="240" height="120">
+            <img src="images/logo_usp_ua_mono.png" alt="Ukraine Strategic Partners" width="240" height="120" loading="lazy" decoding="async">
           </a>
         </div>
         <nav class="footer__nav" aria-label="Footer navigation">
