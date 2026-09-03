@@ -56,9 +56,9 @@ const organizationLd = {
   address: [
     {
       "@type": "PostalAddress",
-      streetAddress: "76 Canterbury Road",
+      streetAddress: "71-75 Shelton Street, Covent Garden",
       addressLocality: "London",
-      postalCode: "CR0 3HA",
+      postalCode: "WC2H 9JQ",
       addressCountry: "GB",
     },
     {

@@ -37,9 +37,9 @@ export default function ContactsPage() {
             address: [
               {
                 "@type": "PostalAddress",
-                streetAddress: "76 Canterbury Road",
+                streetAddress: "71-75 Shelton Street, Covent Garden",
                 addressLocality: "London",
-                postalCode: "CR0 3HA",
+                postalCode: "WC2H 9JQ",
                 addressCountry: "GB",
               },
               {
@@ -145,9 +145,11 @@ export default function ContactsPage() {
               <div className="contact-card__body">
                 <h3>United Kingdom</h3>
                 <address>
-                  76 Canterbury Road
+                  71-75 Shelton Street
                   <br />
-                  Croydon, London CR0 3HA
+                  Covent Garden
+                  <br />
+                  London WC2H 9JQ
                 </address>
               </div>
             </div>
