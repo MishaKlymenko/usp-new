@@ -100,19 +100,40 @@ export default function HomePage() {
       </section>
 
       <section className="section section--alt" aria-labelledby="why-ukraine">
-        <div className="container container--narrow">
+        <div className="container">
           <Reveal className="section__header">
             <h2 id="why-ukraine">Why Ukraine?</h2>
             <span className="accent-line" />
           </Reveal>
-          <Reveal as="p" className="section__body-text">
-            Reconstructing Ukraine and reviving its economy are now global
-            priorities. Ukraine&apos;s government, business community, and civil
-            society, supported by international partners, are ready to begin. The
-            stakes are high, but Ukraine&apos;s scale, strategic location, and
-            geopolitical importance present major opportunities. Ukraine
-            Strategic Partners supports international companies investing in
-            Ukraine&apos;s future.
+          <Reveal className="folio">
+            <div className="folio__text">
+              <div className="folio__col">
+                <p>
+                  Ukraine is entering a period of recovery-led investment,
+                  supported by international financing, reconstruction
+                  programmes, and regulatory reforms. Despite the ongoing
+                  conflict, key sectors of the economy remain resilient, critical
+                  trade and export corridors continue to operate, and the country
+                  continues to strengthen its role as a global agricultural and
+                  industrial hub.
+                </p>
+              </div>
+              <div className="folio__col">
+                <p>
+                  At the same time, Ukraine is deepening integration with Europe
+                  through regulatory reform, improved tax and customs systems,
+                  and a stronger financial sector.
+                </p>
+                <p>
+                  This transformation is creating a more transparent and
+                  predictable environment for international business, attracting
+                  investors and companies including Octopus Energy, HSBC,
+                  AstraZeneca, BAE Systems, Unilever, and Nestlé, all
+                  recognizing both the immediate opportunities and the long-term
+                  potential of this highly adaptable market.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -180,21 +201,59 @@ export default function HomePage() {
       </section>
 
       <section className="section section--navy" aria-labelledby="recovery">
-        <div className="container container--narrow">
+        <div className="container">
           <Reveal className="section__header">
             <h2 id="recovery">Ukraine&apos;s Recovery</h2>
             <span className="accent-line" />
           </Reveal>
-          <Reveal as="p" className="section__body-text section__body-text--light">
-            Ukraine&apos;s recovery efforts are focused on addressing the urgent
-            and widespread damage caused by ongoing hostilities, especially in
-            liberated and frontline regions such as Kharkiv, Mykolaiv, Kherson,
-            Zaporizhzhia, and Donetsk. These areas face critical challenges,
-            including job creation, infrastructure rebuilding, and restoring
-            industrial capacity. To complement these efforts, &quot;safer
-            hubs&quot; in western regions like Lviv, Volyn, and Zakarpattia are
-            being developed to support the relocation of industries requiring
-            stable logistics and lower security risks.
+          <Reveal className="folio folio--on-dark">
+            <div className="folio__text">
+              <div className="folio__col">
+                <p>
+                  Ukraine&apos;s recovery efforts focus on addressing the expanding
+                  reconstruction needs driven by ongoing hostilities, with
+                  targeted impact on energy generation, rail, port, and
+                  industrial infrastructure. While frontline and liberated
+                  regions such as Kharkiv, Mykolaiv, Kherson, Zaporizhzhia, and
+                  Donetsk require urgent support to restore power, rebuild
+                  transit routes, and revive local capacity, structural
+                  requirements have broadened across the country.
+                </p>
+              </div>
+              <div className="folio__col">
+                <p>
+                  To support national resilience, strategic hubs in western
+                  regions like Lviv, Volyn, and Zakarpattia continue to develop,
+                  offering secure environments for corporate relocation,
+                  industrial capacity, and resilient trade corridors. Backed by
+                  international financial institutions and bilateral partners,
+                  this dual focus pairs immediate infrastructure restoration
+                  with compelling long term opportunities, accelerating
+                  Ukraine&apos;s integration into European supply chains.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--alt" aria-labelledby="moldova">
+        <div className="container container--narrow">
+          <Reveal className="section__header">
+            <h2 id="moldova">Moldova: Strategic Regional Partner</h2>
+            <span className="accent-line" />
+          </Reveal>
+          <Reveal as="p" className="section__body-text">
+            As a vital logistics, energy, and supply chain corridor, Moldova
+            serves as a strategic regional partner in Ukraine&apos;s economic
+            resilience and long-term recovery. Leveraging competitive operating
+            costs, an expanding skilled workforce, and accelerating EU market
+            integration, Moldova provides a safe, highly functional staging
+            ground for international businesses. Ukraine Strategic Partners
+            supports companies expanding into Moldova, helping them establish
+            trusted local connections and commercial roots today while
+            positioning their operations to participate in Ukraine&apos;s
+            broader reconstruction pipeline.
           </Reveal>
         </div>
       </section>

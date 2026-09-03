@@ -813,6 +813,113 @@ body.menu-open {
   margin-inline: auto;
 }
 
+/* Long-form text — same type as other sections, two columns on desktop */
+.folio {
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+.folio__text {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-700);
+}
+
+.folio__col p + p {
+  margin-top: var(--sp-md);
+}
+
+@media (max-width: 899px) {
+  .folio__col + .folio__col {
+    margin-top: var(--sp-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .section:has(#why-ukraine) .section__header {
+    margin-bottom: var(--sp-md);
+  }
+
+  .section:has(#why-ukraine) .folio__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  .section:has(#why-ukraine) .folio__col + .folio__col {
+    margin-top: 0;
+  }
+
+  .section:has(#why-ukraine) .folio__col:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+  }
+
+  .section:has(#why-ukraine) .folio__col p {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    text-align: left;
+    padding: calc(var(--sp-md) + 5px) var(--sp-md) var(--sp-md);
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+    font-size: var(--text-base);
+    color: var(--text-muted);
+  }
+
+  .section:has(#why-ukraine) .folio__col p + p {
+    margin-top: 0;
+  }
+
+  .section:has(#why-ukraine) .folio__col p::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  }
+}
+
+@media (min-width: 900px) {
+  .folio__text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .folio__col:first-child {
+    padding-right: var(--sp-2xl);
+  }
+
+  .folio__col + .folio__col {
+    border-left: 1px solid var(--border);
+    padding-left: var(--sp-2xl);
+  }
+
+  .folio--on-dark .folio__col + .folio__col {
+    border-left-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+.folio--on-dark .folio__text {
+  color: #e8eaed;
+}
+
+@media (max-width: 899px) {
+  .folio--on-dark {
+    max-width: 62ch;
+  }
+
+  .folio--on-dark .folio__text {
+    text-align: center;
+  }
+}
+
 /* ── 9. Hero ───────────────────────────────── */
 .hero {
   position: relative;
@@ -2673,6 +2780,10 @@ a.contact-card {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--gray-700);
+}
+
+.section__body-text p + p {
+  margin-top: var(--sp-md);
 }
 
 .section__body-text--light {
