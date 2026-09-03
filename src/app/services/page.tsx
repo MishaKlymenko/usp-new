@@ -10,64 +10,52 @@ import {
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Our services include sector analysis, government relations, political intelligence, risk mitigation, investment advice, and in-country support for investing in Ukraine.",
+    "Sector and project analysis, government and donor relations, political intelligence, investment advisory, and in-country support across Ukraine and Moldova.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Our Services — Ukraine Strategic Partners",
     description:
-      "Sector analysis, government relations, political intelligence, risk mitigation and in-country support for Ukraine investment.",
+      "Advisory and network services for investing in Ukraine and Moldova.",
     url: "/services",
   },
   twitter: {
     title: "Our Services — Ukraine Strategic Partners",
     description:
-      "Comprehensive advisory and network services for investing in Ukraine.",
+      "Sector analysis, government relations, political intelligence and in-country support in Ukraine and Moldova.",
   },
 };
 
 const services = [
   {
-    title: "Sector & Project Analysis",
-    text: "Comprehensive analysis of market sectors and specific project opportunities in Ukraine's reconstruction landscape.",
+    title: "Sector and Project Analysis",
+    text: "Identify high-potential sectors and investment opportunities in Ukraine and Moldova with market insights grounded in decades of experience across Eastern and Central Europe.",
   },
   {
-    title: "Government & Donor Programme Relations",
-    text: "Facilitating connections with Ukrainian government officials and international donor programmes supporting reconstruction.",
+    title: "Government and Donor Relations",
+    text: "Connect with decision-makers, international financial institutions, and donor programmes supporting Ukraine's recovery and development in Ukraine and Moldova through USP's trusted network across the political ecosystem.",
   },
   {
-    title: "Political Intelligence & Insight",
-    text: "Critical political and economic intelligence to support informed decision-making in Ukraine's dynamic environment.",
+    title: "Political Intelligence",
+    text: "Navigate complexity with practical risk assessment, due diligence, and strategic advice informed by deep regional and international experience.",
   },
   {
-    title: "Risk Mitigation & Due Diligence",
-    text: "Comprehensive risk assessment and due diligence services to protect your investment and ensure compliance.",
+    title: "Investment Advisory Support",
+    text: "Structure investments effectively through a strong understanding of Ukrainian and Moldovan business environment, the UK financial sector, and targeted local partnerships.",
   },
   {
-    title: "Investment Advice & Protection",
-    text: "Strategic investment guidance and protection strategies tailored to Ukraine's unique business environment.",
-  },
-  {
-    title: "Bid & Contract Support",
-    text: "End-to-end support for bidding processes, contract negotiations, and project management throughout implementation.",
-  },
-  {
-    title: "Donor & Partner-Funded Opportunities",
-    text: "Connecting businesses with international donor funding and partner-funded reconstruction opportunities.",
-  },
-  {
-    title: "In-Country Support in Ukraine",
-    text: "On-the-ground coordination including meetings, visits, and events to facilitate your business operations.",
+    title: "In-Country Support",
+    text: "Deliver projects successfully with on-the-ground support across bidding, negotiation, and implementation in Ukraine, Moldova, and key regional corridors.",
   },
 ];
 
 const networks = [
   {
-    title: "Ukrainian Political Networks",
-    text: "Close and long-standing contacts with all Ukrainian political parties and movements across the political spectrum.",
+    title: "Political Networks",
+    text: "Close and long-standing contacts with all political actors in Ukraine and Moldova.",
   },
   {
     title: "Government Administration Contacts",
-    text: "Trusted contacts in Ukrainian national, regional and local government administrations at all levels.",
+    text: "Trusted contacts in Ukrainian and Moldovan national and local government administrations at all levels.",
   },
   {
     title: "Regional Business Contacts",
@@ -89,9 +77,6 @@ const timelineRows: TimelineRow[] = [
   { left: services[2], right: networks[2] },
   { left: services[3], right: networks[3] },
   { left: services[4], right: networks[4] },
-  { left: services[5] },
-  { left: services[6] },
-  { left: services[7] },
 ];
 
 export default function ServicesPage() {
