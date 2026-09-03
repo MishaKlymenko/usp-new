@@ -50,6 +50,11 @@ export function PartnersCarousel({ partners }: { partners: Partner[] }) {
 
   const looped = total > 1 ? [partners[total - 1], ...partners, partners[0]] : partners;
   const pages = centered ? total : pageCount(total, visible);
+  const pagesRef = useRef(pages);
+  pagesRef.current = pages;
+  // one clone on each side is enough since the window only ever moves one step past its bounds
+  const desktopLooping = !centered && pages > 1;
+  const desktopRenderIndex = desktopLooping ? index + 1 : index;
 
   const realIndex = centered
     ? index === 0
@@ -57,7 +62,11 @@ export function PartnersCarousel({ partners }: { partners: Partner[] }) {
       : index === total + 1
         ? 0
         : index - 1
-    : index;
+    : index === -1
+      ? pages - 1
+      : index === pages
+        ? 0
+        : index;
 
   useEffect(() => {
     const sync = () => {
@@ -95,18 +104,32 @@ export function PartnersCarousel({ partners }: { partners: Partner[] }) {
 
   const next = () => {
     if (centeredRef.current) {
-      setIndex((current) => current + 1);
+      setIndex((current) => {
+        const max = totalRef.current + 1;
+        return current >= max ? 2 : current + 1;
+      });
       return;
     }
-    goTo(indexRef.current + 1);
+    if (!desktopLooping) {
+      goTo(indexRef.current + 1);
+      return;
+    }
+    setIndex((current) => (current >= pagesRef.current ? 0 : current + 1));
   };
 
   const prev = () => {
     if (centeredRef.current) {
-      setIndex((current) => current - 1);
+      setIndex((current) => {
+        const max = totalRef.current + 1;
+        return current <= 0 ? max - 2 : current - 1;
+      });
       return;
     }
-    goTo(indexRef.current - 1);
+    if (!desktopLooping) {
+      goTo(indexRef.current - 1);
+      return;
+    }
+    setIndex((current) => (current <= -1 ? pagesRef.current - 1 : current - 1));
   };
 
   const goToDot = (page: number) => {
@@ -156,19 +179,28 @@ export function PartnersCarousel({ partners }: { partners: Partner[] }) {
   }, [pages]);
 
   const onTrackTransitionEnd = () => {
-    if (!centeredRef.current) return;
-    if (indexRef.current === 0) {
+    if (centeredRef.current) {
+      if (indexRef.current === 0) {
+        setInstant(true);
+        setIndex(totalRef.current);
+      } else if (indexRef.current === totalRef.current + 1) {
+        setInstant(true);
+        setIndex(1);
+      }
+      return;
+    }
+    if (indexRef.current === -1) {
       setInstant(true);
-      setIndex(totalRef.current);
-    } else if (indexRef.current === totalRef.current + 1) {
+      setIndex(pagesRef.current - 1);
+    } else if (indexRef.current === pagesRef.current) {
       setInstant(true);
-      setIndex(1);
+      setIndex(0);
     }
   };
 
   const transform = centered
     ? `translateX(calc(100% / var(--pc-visible) / 2 - ${index} * 100% / var(--pc-visible)))`
-    : `translateX(calc(-${index} * 100% / var(--pc-visible)))`;
+    : `translateX(calc(-${desktopRenderIndex} * 100% / var(--pc-visible)))`;
 
   return (
     <div
@@ -197,10 +229,10 @@ export function PartnersCarousel({ partners }: { partners: Partner[] }) {
             onTrackTransitionEnd();
           }}
         >
-          {(centered ? looped : partners).map((partner, slideIndex) => {
+          {(centered || desktopLooping ? looped : partners).map((partner, slideIndex) => {
             const isActive = centered
               ? slideIndex === index
-              : slideIndex >= index && slideIndex < index + visible;
+              : slideIndex >= desktopRenderIndex && slideIndex < desktopRenderIndex + visible;
             return (
               <article
                 className={`partners-carousel__slide${isActive ? " is-active" : ""}`}
