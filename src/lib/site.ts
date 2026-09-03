@@ -1,5 +1,5 @@
 export const SITE_URL = "https://usp-ukraine.com";
-export const INTERNSHIPS_PDF = `${SITE_URL}/Ukraine_Internships.pdf`;
+export const INTERNSHIPS_PDF = "/Ukraine_Internships.pdf";
 
 export const PHONES = [
   { href: "tel:+447747754121", label: "+44 7747 754121" },
@@ -16,11 +16,7 @@ export const NAV_ITEMS = [
   { href: "/about-us", label: "About Us" },
   { href: "/opportunities", label: "Opportunities" },
   { href: "/services", label: "Our Services" },
-  {
-    href: INTERNSHIPS_PDF,
-    label: "Internships",
-    external: true,
-  },
+  { href: "/internships", label: "Internships" },
   { href: "/contacts", label: "Contact" },
 ] as const;
 
@@ -28,7 +24,7 @@ export const FOOTER_NAV = [
   { href: "/about-us", label: "About Us" },
   { href: "/opportunities", label: "Opportunities" },
   { href: "/services", label: "Our Services" },
-  { href: INTERNSHIPS_PDF, label: "Internships", external: true },
+  { href: "/internships", label: "Internships" },
   { href: "/contacts", label: "Contact" },
 ] as const;
 

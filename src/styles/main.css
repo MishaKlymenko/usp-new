@@ -3148,3 +3148,30 @@ a.contact-card {
     padding: var(--sp-xl) var(--sp-lg);
   }
 }
+
+/* ── 30. Internships ───────────────────────── */
+.internships__copy {
+  max-width: 68ch;
+  margin-inline: auto;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-700);
+}
+
+.internships__copy p + p {
+  margin-top: var(--sp-md);
+}
+
+.internships__copy a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.internships__copy a:hover {
+  color: var(--gold-text);
+}
+
+.internships__actions {
+  margin-top: var(--sp-xl);
+}
