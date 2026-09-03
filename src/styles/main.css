@@ -794,6 +794,16 @@ body.menu-open {
   line-height: var(--leading-relaxed);
 }
 
+.section__subhead {
+  text-align: center;
+  font-size: var(--text-xl);
+  margin-bottom: var(--sp-lg);
+}
+
+.section:has(#reconstruction-heading) .section__header p {
+  max-width: 72ch;
+}
+
 .section--navy .section__header p,
 .section--navy-deep .section__header p {
   color: #e8eaed;

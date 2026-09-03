@@ -6,62 +6,63 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Opportunities in Ukraine",
   description:
-    "Explore key investment sectors in Ukraine's reconstruction — energy, defence, agriculture, IT, construction, critical minerals, and innovation.",
+    "Ukraine's reconstruction needs and key investment priorities — infrastructure and power, regional hubs, Moldova staging, and private capital mobilisation.",
   alternates: { canonical: "/opportunities" },
   openGraph: {
     title: "Opportunities in Ukraine — Ukraine Strategic Partners",
     description:
-      "Key investment sectors in Ukraine's recovery — energy, defence, agriculture, IT, construction, and critical minerals.",
+      "Reconstruction needs and investment priorities across Ukraine and Moldova.",
     url: "/opportunities",
   },
   twitter: {
     title: "Opportunities in Ukraine — Ukraine Strategic Partners",
-    description: "Key investment sectors in Ukraine's reconstruction.",
+    description:
+      "Infrastructure, regional hubs, Moldova staging, and private capital for Ukraine's recovery.",
   },
 };
 
 const sectors = [
   {
-    title: "Energy",
+    title: "Energy & Grid Modernisation",
     image: "/images/sectors/energy.avif",
-    alt: "Energy sector in Ukraine",
-    desc: "Critical infrastructure rebuilding and renewable energy development for Ukraine's energy independence.",
+    alt: "Energy and grid modernisation in Ukraine",
+    desc: "Focus on decentralised power generation, renewable infrastructure, energy storage, and smart grid systems to build long term energy security and export potential.",
   },
   {
-    title: "Defence",
+    title: "Defence Technology & Strategic Industries",
     image: "/images/sectors/defence.avif",
-    alt: "Defence sector in Ukraine",
-    desc: "Strengthening Ukraine's defence capabilities, including modernisation of equipment and strategic industries.",
+    alt: "Defence technology and strategic industries in Ukraine",
+    desc: "Expanding international joint ventures, localized manufacturing, maintenance partnerships, and dual use technological innovation to build modern industrial capacity.",
   },
   {
-    title: "Agriculture & Agro-Processing",
+    title: "Agriculture & Value-Added Agro-Processing",
     image: "/images/sectors/agro.avif",
-    alt: "Agriculture in Ukraine",
-    desc: "Modern agricultural technology and food processing facilities to restore Ukraine's agricultural capacity.",
+    alt: "Agriculture and value-added agro-processing in Ukraine",
+    desc: "Advancing modern agritech, precision farming, deep processing facilities, and cold-chain logistics to convert agricultural yields into high value processed exports.",
   },
   {
-    title: "IT & Technology",
+    title: "IT & Digital Ecosystems",
     image: "/images/sectors/it1.avif",
-    alt: "IT and technology sector",
-    desc: "Ukraine's advanced IT sector offers significant opportunities for international technology partnerships.",
+    alt: "IT and digital ecosystems in Ukraine",
+    desc: "Leveraging Ukraine's world class tech talent pool for global software engineering, cybersecurity, enterprise solutions, and digital infrastructure integration.",
   },
   {
-    title: "Construction",
+    title: "Transport, Logistics & Construction",
     image: "/images/sectors/building1.avif",
-    alt: "Construction and infrastructure",
-    desc: "Large-scale infrastructure projects including transport hubs and power generation through public-private partnerships.",
+    alt: "Transport, logistics and construction in Ukraine",
+    desc: "Upgrading port facilities, railway connections, border logistics hubs, and commercial real estate through public private partnerships and concession frameworks.",
   },
   {
-    title: "Critical Minerals",
+    title: "Critical Minerals & Processing",
     image: "/images/sectors/minerals2.avif",
-    alt: "Critical minerals extraction",
-    desc: "Extraction and processing of critical minerals essential for modern technology and renewable energy systems.",
+    alt: "Critical minerals extraction and processing in Ukraine",
+    desc: "Developing extraction, refining, and advanced processing capabilities for critical raw materials essential to global green energy and technology supply chains.",
   },
   {
-    title: "Innovation, Education & Academia",
+    title: "Innovation, Education & Human Capital",
     image: "/images/sectors/Education.avif",
-    alt: "Innovation, education and academia",
-    desc: "International education partnerships, academic exchange, and innovation ecosystems to develop Ukraine's human capital and future skills.",
+    alt: "Innovation, education and human capital in Ukraine",
+    desc: "Fostering academic exchange, specialized vocational programs, and research ecosystems to build a highly skilled workforce for future industrial demands.",
   },
 ];
 
@@ -79,43 +80,64 @@ export default function OpportunitiesPage() {
             <h2 id="reconstruction-heading">Ukraine&apos;s Reconstruction Needs</h2>
             <span className="accent-line" />
             <p>
-              Ukraine&apos;s recovery efforts are focused on addressing the urgent
-              and widespread damage caused by ongoing hostilities, especially in
-              liberated and frontline regions such as Kharkiv, Mykolaiv, Kherson,
-              Zaporizhzhia, and Donetsk.
+              Ukraine&apos;s recovery efforts focus on meeting expanding capital
+              requirements across key economic sectors, supported by international
+              donor programs, bilateral funding, and private investment. While
+              substantial investment is directed toward restoring and modernizing
+              energy networks, transport routes, and industrial facilities in
+              frontline and de-occupied regions such as Kharkiv, Mykolaiv,
+              Kherson, Zaporizhzhia, and Donetsk, commercial opportunities are
+              growing across the entire country.
             </p>
           </Reveal>
-          <Reveal className="feature-list feature-list--3">
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <p>
-                  <strong>Key challenges:</strong> creating new jobs, rebuilding
-                  critical infrastructure, and restoring industrial capacity to
-                  support long-term economic stability.
-                </p>
+          <Reveal>
+            <h3 className="section__subhead">Key Priorities</h3>
+            <div className="feature-list">
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Infrastructure &amp; Power Modernisation</h3>
+                  <p>
+                    Upgrading to decentralised energy generation, expanding green
+                    energy capacity, and modernising transport networks to ensure
+                    long term operational reliability.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <p>
-                  <strong>&quot;Safer hubs&quot;</strong> in western regions like
-                  Lviv, Volyn, and Zakarpattia are being developed to support the
-                  relocation of industries requiring stable logistics and lower
-                  security risks.
-                </p>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Strategic Regional Hubs</h3>
+                  <p>
+                    Expanding industrial capacity and trade logistics in western
+                    hubs such as Lviv, Volyn, and Zakarpattia, offering secure
+                    environments for enterprise relocation, stable operations,
+                    and direct access to European markets.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <p>
-                  <strong>Ukraine&apos;s reconstruction agenda</strong> calls for
-                  a coordinated investment approach that mobilises both national
-                  and international resources, with significant private sector
-                  involvement.
-                </p>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Cross-Border Staging &amp; Moldova Hubs</h3>
+                  <p>
+                    Leveraging Moldova&apos;s competitive costs, skilled
+                    workforce, and EU market alignment to establish an immediate
+                    regional foothold while preparing for Ukraine&apos;s future
+                    reconstruction.
+                  </p>
+                </div>
+              </div>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Private Capital Mobilisation</h3>
+                  <p>
+                    Partnering international development finance with private
+                    sector enterprise to unlock high growth, sustainable
+                    commercial opportunities.
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -128,9 +150,10 @@ export default function OpportunitiesPage() {
             <h2 id="sectors-heading">Strategic and Sectoral Priorities</h2>
             <span className="accent-line" />
             <p>
-              The Government of Ukraine prioritises key sectors that are
-              essential for reconstruction and have a strong multiplier effect on
-              the economy, aligning closely with the Ukraine Recovery Plan.
+              The Government of Ukraine prioritises key economic sectors that
+              drive sustainable commercial growth, aligning investment
+              opportunities with state recovery initiatives and European market
+              integration.
             </p>
           </Reveal>
           <Reveal className="card-grid card-grid--3" stagger>
@@ -157,51 +180,78 @@ export default function OpportunitiesPage() {
 
       <section
         className="section section--alt"
-        aria-labelledby="guarantees-heading"
+        aria-labelledby="incentives-heading"
       >
         <div className="container">
           <Reveal className="section__header">
-            <h2 id="guarantees-heading">
-              Government Guarantees and Investor Protections
+            <h2 id="incentives-heading">
+              Investment Protection and Fiscal Incentives
             </h2>
             <span className="accent-line" />
             <p>
-              Ukraine offers a range of financial incentives and protections
-              designed to attract and safeguard foreign investors.
+              Investment in Ukraine is backed by unprecedented international
+              support. Comprehensive programs from the EU, IMF, World Bank, and
+              EBRD provide guarantees, blended finance, and political risk
+              mitigation tools that significantly reduce market entry risk.
             </p>
           </Reveal>
-          <Reveal className="feature-list feature-list--3">
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <h3>Enterprise Modernisation Grants</h3>
-                <p>
-                  Substantial grants for enterprise modernisation, especially in
-                  de-occupied territories, subject to co-financing requirements
-                  and job creation commitments.
-                </p>
+          <Reveal>
+            <h3 className="section__subhead">
+              Recovery Mechanisms &amp; Incentives
+            </h3>
+            <div className="feature-list">
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Processing Industry Grants</h3>
+                  <p>
+                    Grants of up to <strong>UAH 16 million</strong> for industrial
+                    recovery, expansion, and equipment modernization under the
+                    national <em>Made in Ukraine</em> program.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <h3>War Risk Insurance</h3>
-                <p>
-                  Comprehensive war risk insurance mechanisms through the Export
-                  Credit Agency, supported by legislation and coordinated efforts
-                  with international insurers such as MIGA, DFC, and EBRD.
-                </p>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Capital Investment Recovery</h3>
+                  <p>
+                    Tax relief and compensation mechanisms allowing businesses to
+                    recover <strong>30% to 70%</strong> of capital investment,
+                    scaled according to project size.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="feature-bar">
-              <div className="feature-bar__line" />
-              <div className="feature-bar__content">
-                <h3>Large Investment Support</h3>
-                <p>
-                  Large-scale investments starting from €12 million may qualify
-                  for state support covering up to 30% of project costs,
-                  including infrastructure reimbursements and tax incentives.
-                </p>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Industrial Park Regimes</h3>
+                  <p>
+                    Direct access to ready-zoned land, state infrastructure
+                    support, and potential{" "}
+                    <strong>10-year corporate income tax exemptions</strong>.
+                  </p>
+                </div>
+              </div>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Fiscal Exemptions</h3>
+                  <p>
+                    Full exemptions from import duties and Value Added Tax (VAT)
+                    on eligible production equipment and machinery.
+                  </p>
+                </div>
+              </div>
+              <div className="feature-bar">
+                <div className="feature-bar__line" />
+                <div className="feature-bar__content">
+                  <h3>Institutional De-Risking</h3>
+                  <p>
+                    Multilateral guarantees and EU-backed financial instruments
+                    designed to ensure secure capital deployment.
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>
