@@ -3156,8 +3156,7 @@ a.contact-card {
 
 .internships__copy a {
   color: var(--navy);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
+  text-decoration: none;
 }
 
 .internships__copy a:hover {
@@ -3166,4 +3165,11 @@ a.contact-card {
 
 .internships__actions {
   margin-top: var(--sp-xl);
+}
+
+@media (max-width: 767px) {
+  .internships__copy {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }

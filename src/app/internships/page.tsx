@@ -68,7 +68,7 @@ export default function InternshipsPage() {
               needed for long-term regional recovery.
             </p>
             <p>
-              Explore our <strong>Ukraine Internships Guide</strong> to learn
+              Explore our Ukraine Internships Guide to learn
               more about placement options, partner benefits, and application
               details.
             </p>
