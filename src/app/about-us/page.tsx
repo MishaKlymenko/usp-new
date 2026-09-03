@@ -175,7 +175,7 @@ const engagements = [
   },
   {
     src: "/images/engagements/05-rebuild-ukraine-conference-warsaw.avif",
-    title: "Rebuild Ukraine Conference | Warsaw",
+    title: "Rebuild Ukraine Conference in Warsaw",
     caption:
       "USP leadership engaging with Ukrainian representatives to support long-term economic recovery under the bilateral 100-Year Partnership.",
   },

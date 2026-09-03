@@ -3083,9 +3083,10 @@ a.contact-card {
 
 .gallery__caption {
   padding: var(--sp-md) var(--sp-lg);
-  text-align: left;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   min-height: 0;
   overflow: auto;
@@ -3106,6 +3107,7 @@ a.contact-card {
   height: 3px;
   margin-top: var(--sp-sm);
   margin-bottom: var(--sp-md);
+  margin-inline: auto;
   border-radius: 3px;
   background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
 }
@@ -3138,6 +3140,12 @@ a.contact-card {
 
   .gallery__caption {
     padding: var(--sp-xl) var(--sp-lg);
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .gallery__caption h3::after {
+    margin-inline: 0;
   }
 }
 
