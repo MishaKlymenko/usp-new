@@ -265,31 +265,16 @@ body::before {
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.35s ease,
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
+              background 0.15s ease,
+              box-shadow 0.15s ease,
+              border-color 0.15s ease;
 }
 
-/* Scrolled — frosted glass, compact */
+/* Scrolled — solid white, compact */
 .site-header.scrolled {
-  background: transparent;
+  background: var(--white);
   border-bottom-color: var(--border-light);
   box-shadow: 0 1px 0 var(--border-light), var(--shadow-md);
-}
-
-.site-header.scrolled::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.site-header.menu-open.scrolled::before {
-  opacity: 0;
 }
 
 /* Smart hide on scroll down */
@@ -325,7 +310,7 @@ body::before {
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  transition: height 0.35s ease, filter 0.35s ease, opacity var(--duration);
+  transition: height 0.15s ease, filter 0.15s ease, opacity var(--duration);
 }
 
 .site-header.scrolled .nav__logo img {
@@ -613,7 +598,7 @@ body.menu-open {
   }
 
   .site-header.scrolled .nav__menu a[aria-current="page"] {
-    color: var(--navy);
+    color: var(--gold);
     background: var(--gold-muted);
   }
 
