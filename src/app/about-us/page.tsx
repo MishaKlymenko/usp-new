@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { EngagementsGallery } from "@/components/EngagementsGallery";
+import { PartnersCarousel } from "@/components/PartnersCarousel";
 import { TeamCard, type TeamMember } from "@/components/TeamCard";
-import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -36,11 +37,11 @@ const team: TeamMember[] = [
   {
     id: "yana-kazakova",
     name: "Yana Kazakova",
-    role: "Government Relations Consultant",
+    role: "Director of Programmes",
     image: "/images/team/Yana Kazakova.avif",
     alt: "Yana Kazakova",
     label:
-      "Yana Kazakova — Government Relations Consultant. Tap or hover to read bio.",
+      "Yana Kazakova — Director of Programmes. Tap or hover to read bio.",
     bio: "Yana has worked on US, UK and Canadian government programmes, building relationships with diverse stakeholders, including Ukrainian government officials and political leaders, international partners and the private sector. She brings in-depth knowledge of Ukraine's reform and reconstruction landscape, as well as strong policy skills.",
   },
   {
@@ -135,26 +136,86 @@ const board: TeamMember[] = [
     label: "Andriy Dligach — Advisory Board Member. Tap or hover to read bio.",
     bio: "Andriy is an economist, strategist and entrepreneur with more than two decades of experience driving business transformation and innovation across Ukraine and Eastern Europe. He is the Founder & CEO of Advanter Group and co-founder of the Centre for Economic Recovery, where he contributed to shaping Ukraine's National Economic Strategy 2030. As a professor at the Kyiv School of Economics and the Taras Shevchenko National University of Kyiv, Andriy bridges academic rigour with private-sector insight. At USP, he brings strategic vision and extensive cross-sector networks to help international investors and local stakeholders frame compelling opportunities for growth in Ukraine.",
   },
+  {
+    id: "halyna-vasylchenko",
+    name: "Halyna Vasylchenko",
+    role: "Honorary Parliamentary Advisor (UK–Ukraine Relations)",
+    image: "/images/team/HalynaVasylchenko.avif",
+    alt: "Halyna Vasylchenko",
+    label:
+      "Halyna Vasylchenko — Honorary Parliamentary Advisor (UK–Ukraine Relations). Tap or hover to read bio.",
+    bio: "Halyna is a Member of the Ukrainian Parliament, serving on the Committee on Finance, Taxation, and Customs Policy, as well as the Interparliamentary Group for Relations with the United Kingdom. She focuses on advancing reforms to support entrepreneurship, strengthening bilateral relations, and creating a transparent environment for international investment. Before her election in 2019, she held key roles in international economic relations and investment promotion across the public and private sectors. Halyna supports the Advisory Board in a voluntary, non-remunerated capacity.",
+  },
 ];
 
-const testimonials = [
+const engagements = [
   {
-    quote:
-      "Championed international engagement with Ukraine, emphasising the importance of strategic partnerships between the UK and Ukraine for long-term regional stability and shared economic growth.",
-    author: "Nia Griffith MP",
-    role: "Speaker at USP Launch, Labour Party Conference 2005",
+    src: "/images/engagements/01-uk-ukraine-economic-cooperation-panel.avif",
+    title: "UK and Ukraine Economic Cooperation Panel",
+    caption:
+      "USP CEO Andrew Young moderating a discussion on strategic partnerships and investment, featuring Dame Nia Griffith MP, Halyna Vasylchenko MP, and Nicola Watkinson of TheCityUK.",
   },
   {
-    quote:
-      "Highlighted the significance of UK–Ukraine cooperation and the critical role that strategic consultancy plays in strengthening bilateral ties and advancing reform.",
-    author: "Halyna Vasylchenko MP",
-    role: "Member of the Verkhovna Rada of Ukraine",
+    src: "/images/engagements/02-partnership-association-ukrainian-cities.avif",
+    title: "Partnership with the Association of Ukrainian Cities",
+    caption:
+      "Oleksandr Slobozhan, Executive Director of the Association of Ukrainian Cities, signing a strategic MoU with USP to support local communities and regional recovery across Ukraine.",
   },
   {
-    quote:
-      "Endorsed the initiative as a vital bridge between British enterprise and Ukraine's emerging market opportunities, underscoring the value of informed, on-the-ground advisory.",
-    author: "Mark Field",
-    role: "Presenter at Conservative Party Conference 2005",
+    src: "/images/engagements/03-engagement-kyiv-city-administration.avif",
+    title: "Engagement with Kyiv City Administration",
+    caption:
+      "Vitali Klitschko, Mayor of Kyiv, meeting with the USP team to discuss municipal priorities, strategic investment, and long-term recovery for the capital.",
+  },
+  {
+    src: "/images/engagements/04-regional-recovery-investment-lviv.avif",
+    title: "Regional Recovery & Investment in Lviv",
+    caption:
+      "Mayor Andriy Sadovyi alongside Head of Investment Andriy Pavliv in discussion with USP to connect international capital with Lviv\u2019s economic growth initiatives.",
+  },
+  {
+    src: "/images/engagements/05-rebuild-ukraine-conference-warsaw.avif",
+    title: "Rebuild Ukraine Conference | Warsaw",
+    caption:
+      "USP leadership engaging with Ukrainian representatives to support long-term economic recovery under the bilateral 100-Year Partnership.",
+  },
+];
+
+const partners = [
+  {
+    name: "Association of Ukrainian Cities",
+    href: "https://www.auc.org.ua/",
+    src: "/images/auc-logo.png",
+    width: 124,
+    height: 128,
+  },
+  {
+    name: "European Cooperation Agency",
+    href: "https://europeancooperationagency.onrender.com/ua/about_us",
+    src: "/images/eca-logo.svg",
+    width: 400,
+    height: 300,
+  },
+  {
+    name: "Renewable Energy Association",
+    href: "https://www.r-e-a.net/",
+    src: "/images/partners/rea-logo.png",
+    width: 480,
+    height: 164,
+  },
+  {
+    name: "Attorneys Association “Jus Collegium”",
+    href: "https://juscollegium.com.ua/",
+    src: "/images/partners/jus-collegium.png",
+    width: 180,
+    height: 180,
+  },
+  {
+    name: "The Global Career Center",
+    href: "https://www.globalcareercenter.org/",
+    src: "/images/partners/gcc-logo.png",
+    width: 192,
+    height: 192,
   },
 ];
 
@@ -196,17 +257,18 @@ export default function AboutPage() {
                 future.
               </blockquote>
               <p className="split__intro">
-                We draw on a team of highly experienced consultants with deep
-                knowledge of Ukraine and the wider region. Each team member has a
-                strong track record of advising international clients and
-                navigating complex political, economic, and regulatory
-                environments.
+                We draw on a team of highly experienced consultants based in the
+                UK, Ukraine, and Moldova. Each team member has a deep knowledge
+                of Ukraine and the wider region. They have a strong track record
+                of advising international clients and navigating complex
+                political, economic, and regulatory environments.
               </p>
               <p className="split__intro" style={{ marginTop: 0 }}>
-                Together, we offer exceptional networks and insights to support
-                effective decision-making and strategic engagement. We leverage
-                unparalleled networks within the Ukrainian government and with
-                partner governments, as well as{" "}
+                Together, we offer exceptional insight, connectivity, and
+                capability to support clients&apos; strategic engagement,
+                decision-making, and in-country operations. We leverage
+                unparalleled networks within the Ukrainian and Moldovan
+                governments and with partner governments, as well as{" "}
                 <strong>20 years of experience</strong> supporting investors in
                 Central and Eastern Europe.
               </p>
@@ -288,61 +350,20 @@ export default function AboutPage() {
             <h2 id="partners-heading">Our Partners</h2>
             <span className="accent-line" />
           </Reveal>
-          <Reveal as="ul" className="partners-list" role="list">
-            <li className="partners-list__item">
-              <a
-                href="https://www.auc.org.ua/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Association of Ukrainian Cities"
-              >
-                <div className="partners-list__logo">
-                  <img
-                    src="/images/auc-logo.png"
-                    alt="Association of Ukrainian Cities"
-                    loading="lazy"
-                    width={124}
-                    height={128}
-                  />
-                </div>
-                <span className="partners-list__name">
-                  Association of Ukrainian Cities
-                </span>
-              </a>
-            </li>
-            <li className="partners-list__item">
-              <a
-                href="https://www.facebook.com/ECAgency.UA"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Agency of European Cooperation"
-              >
-                <div className="partners-list__logo">
-                  <img
-                    src="/images/eca-logo.svg"
-                    alt="Agency of European Cooperation"
-                    loading="lazy"
-                    width={400}
-                    height={300}
-                  />
-                </div>
-                <span className="partners-list__name">
-                  Agency of European Cooperation
-                </span>
-              </a>
-            </li>
+          <Reveal>
+            <PartnersCarousel partners={partners} />
           </Reveal>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="testimonials-heading">
+      <section className="section" aria-labelledby="engagements-heading">
         <div className="container">
           <Reveal className="section__header">
-            <h2 id="testimonials-heading">Testimonials</h2>
+            <h2 id="engagements-heading">Strategic Engagements</h2>
             <span className="accent-line" />
           </Reveal>
           <Reveal>
-            <TestimonialsCarousel testimonials={testimonials} />
+            <EngagementsGallery items={engagements} />
           </Reveal>
         </div>
       </section>
