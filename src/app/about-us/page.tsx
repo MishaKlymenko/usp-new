@@ -263,7 +263,7 @@ export default function AboutPage() {
                 of advising international clients and navigating complex
                 political, economic, and regulatory environments.
               </p>
-              <p className="split__intro" style={{ marginTop: 0 }}>
+              <p className="split__intro">
                 Together, we offer exceptional insight, connectivity, and
                 capability to support clients&apos; strategic engagement,
                 decision-making, and in-country operations. We leverage
